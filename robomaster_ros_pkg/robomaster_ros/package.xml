@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<package format="3">
+  <name>robomaster_ros</name>
+  <version>0.2.0</version>
+  <description>RoboMaster ROS 2 drivers</description>
+
+  <maintainer email="jerome@idsia.ch">Jerome Guzzi</maintainer>
+  <license>Apache-2.0</license>
+
+  <!-- ament_python 패키지 -->
+  <buildtool_depend>ament_python</buildtool_depend>
+
+  <!-- 런타임 의존 (파이썬 패키지는 파이썬 이름으로) -->
+  <exec_depend>rclpy</exec_depend>
+  <exec_depend>std_msgs</exec_depend>
+  <exec_depend>sensor_msgs</exec_depend>
+  <exec_depend>geometry_msgs</exec_depend>
+  <exec_depend>nav_msgs</exec_depend>
+  <exec_depend>std_srvs</exec_depend>
+  <exec_depend>cv_bridge</exec_depend>
+  <exec_depend>robomaster_msgs</exec_depend>
+  <exec_depend>python3-opencv</exec_depend>
+
+  <!-- 실제 파이썬 의존 -->
+  <exec_depend>numpy</exec_depend>
+  <exec_depend>pyyaml</exec_depend>
+  <exec_depend>robomaster</exec_depend>
+
+  <!-- 런치 사용 시 -->
+  <exec_depend>ros2launch</exec_depend>
+
+  <export>
+    <build_type>ament_python</build_type>
+  </export>
+</package>

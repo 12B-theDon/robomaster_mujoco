@@ -1,0 +1,57 @@
+<launch>
+
+  <arg name="name" default=""/>
+  <arg name="model" default="ep"/>
+  <arg name="joy_index" default="0"/>
+  <arg name="arm_teleop_mode" default="cmd_arm" description="Arm control mode: cmd_arm (x/z delta), cmd_arm_vel (x/z velocity), or servo_angle (servo0/1 radians via move_servo)"/>
+
+  <push-ros-namespace namespace="$(var name)"/>
+
+  <!-- 1) 조이스틱 드라이버: 저지연 + 래칭 방지 -->
+  <node name="joy" pkg="joy" exec="joy_node" output="screen">
+    <param name="dev" value="/dev/input/js$(var joy_index)"/>
+    <param name="deadzone" value="0.10"/>
+    <param name="autorepeat_rate" value="100.0"/>
+    <param name="coalesce_interval" value="0.0"/>   <!-- 이벤트 합치기 끔 -->
+    <param name="sticky_buttons" value="false"/>    <!-- 토글/래칭 금지 -->
+  </node>
+
+  <!-- 2) 주행 전용: teleop_twist_joy (RB 데드맨, /cmd_vel 퍼블리시) -->
+  <node pkg="teleop_twist_joy" exec="teleop_node" name="teleop_twist_joy" output="screen"
+        args="--ros-args --log-level info">
+    <param from="$(find-pkg-share robomaster_ros)/config/xbox_piloting.yaml"/>
+  </node>
+
+  <!-- 3) 보조 기능: joy_teleop (LED/그리퍼/팔) - piloting 섹션 없는 YAML -->
+  <node if="$(eval '\'$(var arm_teleop_mode)\' == \'cmd_arm\'')" pkg="joy_teleop" exec="joy_teleop" name="joy_teleop" output="screen"
+        args="--ros-args --log-level info">
+    <param from="$(find-pkg-share robomaster_ros)/config/xbox_joy_config_ep.yaml"/>
+  </node>
+
+  <!-- 3a) 보조 기능: joy_teleop (LED/그리퍼 + 팔 속도 cmd_arm_vel) -->
+  <node if="$(eval '\'$(var arm_teleop_mode)\' == \'cmd_arm_vel\'')" pkg="joy_teleop" exec="joy_teleop" name="joy_teleop" output="screen"
+        args="--ros-args --log-level info">
+    <param from="$(find-pkg-share robomaster_ros)/config/xbox_joy_config_ep_arm_vel.yaml"/>
+  </node>
+
+  <!-- 3b) 보조 기능: joy_teleop (LED/그리퍼만, arm 제외) -->
+  <node if="$(eval '\'$(var arm_teleop_mode)\' == \'servo_angle\'')" pkg="joy_teleop" exec="joy_teleop" name="joy_teleop" output="screen"
+        args="--ros-args --log-level info">
+    <param from="$(find-pkg-share robomaster_ros)/config/xbox_joy_config_ep_noarm.yaml"/>
+  </node>
+
+  <!-- 3c) 팔 서보 각도(라디안) 텔레옵: move_servo 액션으로 servo0/1 목표각을 보냄 -->
+  <node if="$(eval '\'$(var arm_teleop_mode)\' == \'servo_angle\'')" pkg="robomaster_ros" exec="joy_servo_angle_teleop"
+        name="joy_servo_angle_teleop" output="screen"
+        args="--ros-args --log-level info">
+    <!-- Defaults mirror the existing cmd_arm joystick axes (axis0/axis1) and deadman (LB=4) -->
+    <param name="deadman_button" value="4"/>
+    <param name="servo0_axis" value="0"/>
+    <param name="servo1_axis" value="1"/>
+    <param name="servo0_index" value="0"/>
+    <param name="servo1_index" value="1"/>
+    <param name="servo0_rate_rad_s" value="1.0"/>
+    <param name="servo1_rate_rad_s" value="1.0"/>
+  </node>
+
+</launch>

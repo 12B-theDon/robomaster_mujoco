@@ -1,0 +1,82 @@
+# Xbox Wireless Controller (Bluetooth)
+# Auxiliary controls (LED/gripper/etc). Arm control is intentionally omitted.
+/**:
+  ros__parameters:
+    # ─────────────── LED 제어 ───────────────
+    yellow:
+      type: topic
+      interface_type: "robomaster_msgs/msg/LEDEffect"
+      topic_name: leds/effect
+      deadman_buttons: [5, 3]        # RB + Y
+      message_value:
+        color-r: { value: 1.0 }
+        color-g: { value: 1.0 }
+
+    blue:
+      type: topic
+      interface_type: "robomaster_msgs/msg/LEDEffect"
+      topic_name: leds/effect
+      deadman_buttons: [5, 2]        # RB + X
+      message_value:
+        color-b: { value: 1.0 }
+
+    green:
+      type: topic
+      interface_type: "robomaster_msgs/msg/LEDEffect"
+      topic_name: leds/effect
+      deadman_buttons: [5, 1]        # RB + B
+      message_value:
+        color-g: { value: 1.0 }
+
+    red:
+      type: topic
+      interface_type: "robomaster_msgs/msg/LEDEffect"
+      topic_name: leds/effect
+      deadman_buttons: [5, 0]        # RB + A
+      message_value:
+        color-r: { value: 1.0 }
+
+    off:
+      type: topic
+      interface_type: "robomaster_msgs/msg/LEDEffect"
+      topic_name: leds/effect
+      deadman_buttons: [5, 4]        # RB + LB
+      message_value:
+        effect: { value: 0 }
+
+    # ─────────────── 그리퍼 제어 ───────────────
+    close_gripper:
+      type: action
+      interface_type: robomaster_msgs/action/GripperControl
+      action_name: gripper
+      action_goal:
+        target_state: 2               # close
+      deadman_buttons: [4]            # LB
+      buttons: [2]                    # X
+
+    open_gripper:
+      type: action
+      interface_type: robomaster_msgs/action/GripperControl
+      action_name: gripper
+      action_goal:
+        target_state: 1               # open
+      deadman_buttons: [4]
+      buttons: [0]                    # A
+
+    # ─────────────── 휠 모터 제어 ───────────────
+    engage:
+      type: service
+      interface_type: std_srvs/srv/SetBool
+      service_name: engage_wheels
+      service_request: { data: true }
+      deadman_buttons: [4]
+      buttons: [1]                    # LB + B
+
+    disengage:
+      type: service
+      interface_type: std_srvs/srv/SetBool
+      service_name: engage_wheels
+      service_request: { data: false }
+      deadman_buttons: [4]
+      buttons: [3]                    # LB + Y
+

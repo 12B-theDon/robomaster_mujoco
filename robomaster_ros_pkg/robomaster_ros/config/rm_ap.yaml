@@ -1,0 +1,7 @@
+robomaster:
+  ros__parameters:
+    conn_type: "ap"
+    sn: "3JKCH9A00101RJ"     # ← robomaster SN
+    local_ip: "192.168.2.20" # ← wlo1 IP (PC)
+    enable_camera: true
+    scan: false              # 드라이버에 없으면 이 줄은 삭제

@@ -1,0 +1,24 @@
+episode_recorder:
+  ros__parameters:
+    session_root: "/CtrlWorldSessions"
+    episode_prefix: "episode"
+    video_fps: 10.0
+    sample_hz: 10.0
+    video_codec: "mp4v"
+    write_config: true
+    command_activity_epsilon: 0.001
+    image_topic: "/camera/image_color"
+    cmd_vel_topic: "/cmd_vel"
+    cmd_arm_topic: "/cmd_arm"
+    arm_position_topic: "/arm_position"
+    arm_position_history_limit: 500
+    joint_state_topic: "/joint_states"
+    joint_name_filters:
+      - left
+      - right
+      - gripper
+    command_topic: "/joy"
+    odom_topic: "/odom"
+    odom_history_limit: 500
+    gripper_topic: "/gripper"
+    gripper_history_limit: 200

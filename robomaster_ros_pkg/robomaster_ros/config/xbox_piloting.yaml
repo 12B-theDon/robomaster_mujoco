@@ -1,0 +1,14 @@
+teleop_twist_joy:
+  ros__parameters:
+    enable_button: 5                 # RB (Deadman)
+    require_enable_button: true
+
+    # 이동축 매핑
+    axis_linear: {x: 4}              # 왼스틱 상/하 → 전/후진
+    axis_angular: {yaw: 3}           # 오른스틱 좌/우 → 회전
+
+    # 감도 설정 (약간 민감하게 조정)
+    scale_linear: -0.125              # 전후 속도 (앞 +1 → 전진)
+    scale_linear_turbo: -0.4
+    scale_angular: 0.125              # 회전 속도
+    scale_angular_turbo: 0.4

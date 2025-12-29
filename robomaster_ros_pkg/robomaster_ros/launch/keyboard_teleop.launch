@@ -1,0 +1,31 @@
+<launch>
+
+  <!-- ===== 공통 인자 ===== -->
+  <arg name="name" default="rm"/>
+  <!--<arg name="serial_number" default="3JKCH9A00101RJ"/>-->
+  <arg name="serial_number" default="RM0001"/>
+  <arg name="conn_type" default="sta"/>
+  <arg name="log_level" default="info"/>
+
+  <!-- ===== RoboMaster 드라이버 (원본 main.launch 포함) ===== -->
+  <include file="$(find-pkg-share robomaster_ros)/launch/main.launch">
+    <arg name="name" value="$(var name)"/>
+    <arg name="model" value="ep"/>
+    <arg name="serial_number" value="$(var serial_number)"/>
+    <arg name="conn_type" value="$(var conn_type)"/>
+    <arg name="log_level" value="$(var log_level)"/>
+
+    <!-- cmd_vel -> 바퀴속도 변환 켜기 (키보드 주행) -->
+    <arg name="chassis_twist_to_wheel_speeds" value="true"/>
+
+    <!-- 팔/그리퍼/카메라 활성화 -->
+    <arg name="arm" value="true"/>
+    <arg name="gripper" value="true"/>
+    <arg name="camera" value="true"/>
+
+    <!-- 영상 토픽: 구독 있을 때만 스트림 (대역/CPU 절약) -->
+    <arg name="video" value="2"/>   <!-- ON_DEMAND -->
+    <arg name="audio" value="0"/>   <!-- 끔 -->
+  </include>
+
+</launch>
