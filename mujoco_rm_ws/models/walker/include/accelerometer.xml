@@ -1,0 +1,6 @@
+<mujoco>
+  <body name="accelerometer" pos="0 0 0.067444" quat="1 0 0 0">
+    <geom name="accelerometer_visual" type="mesh" mesh="accelerometer_mesh" material="mat_sensor" mass="0.01" contype="0" conaffinity="0"/>
+    <include file="gyrosensor.xml"/>
+  </body>
+</mujoco>

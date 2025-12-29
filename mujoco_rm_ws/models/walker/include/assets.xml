@@ -1,0 +1,104 @@
+<mujoco>
+  <texture name="sky_gradient" type="skybox" builtin="gradient" rgb1="0.62 0.78 0.94" rgb2="0.1 0.17 0.29" width="1024" height="1024"/>
+  <texture name="grid" type="2d" builtin="checker" rgb1="0.25 0.3 0.35" rgb2="0.35 0.4 0.45" width="512" height="512"/>
+  <material name="mat_ground" texture="grid" texrepeat="6 6" reflectance="0.2"/>
+  <material name="mat_torso" rgba="0.2 0.4 0.8 1"/>
+  <material name="mat_limb" rgba="0.8 0.6 0.3 1"/>
+  <material name="mat_foot" rgba="0.15 0.15 0.15 1"/>
+  <material name="mat_wheel" rgba="0.08 0.08 0.08 1" specular="0.3" shininess="0.6"/>
+  <material name="mat_base" rgba="0.25 0.25 0.27 1" specular="0.2" shininess="0.4"/>
+  <material name="mat_collision" rgba="0.9 0.2 0.2 0.2"/>
+  <material name="mat_sensor" rgba="0.3 0.9 0.4 1" specular="0.1" shininess="0.2"/>
+  <material name="mat_led" rgba="0.95 0.85 0.1 1" emission="0.2"/>
+  <material name="mat_extension" rgba="0.4 0.4 0.45 1"/>
+  <material name="mat_controller" rgba="0.15 0.15 0.18 1" specular="0.1"/>
+  <material name="mat_arm_base" rgba="0.3 0.32 0.38 1"/>
+  <material name="mat_arm_link" rgba="0.35 0.37 0.4 1"/>
+
+  <mesh name="wheel_front_left_mesh_1" file="../assets/mrRM_front_left_wheel_link_visual_vis_1.obj" scale="1 1 1"/>
+  <mesh name="wheel_front_left_mesh_2" file="../assets/mrRM_front_left_wheel_link_visual_vis_2.obj" scale="1 1 1"/>
+  <mesh name="wheel_front_right_mesh_1" file="../assets/mrRM_front_right_wheel_link_visual_vis_1.obj" scale="1 1 1"/>
+  <mesh name="wheel_front_right_mesh_2" file="../assets/mrRM_front_right_wheel_link_visual_vis_2.obj" scale="1 1 1"/>
+  <mesh name="wheel_rear_left_mesh_1" file="../assets/mrRM_rear_left_wheel_link_visual_vis_1.obj" scale="1 1 1"/>
+  <mesh name="wheel_rear_left_mesh_2" file="../assets/mrRM_rear_left_wheel_link_visual_vis_2.obj" scale="1 1 1"/>
+  <mesh name="wheel_rear_right_mesh_1" file="../assets/mrRM_rear_right_wheel_link_visual_vis_1.obj" scale="1 1 1"/>
+  <mesh name="wheel_rear_right_mesh_2" file="../assets/mrRM_rear_right_wheel_link_visual_vis_2.obj" scale="1 1 1"/>
+  <mesh name="base_link_mesh_1" file="../assets/mrRM_base_link_visual_vis_1.obj"/>
+  <mesh name="base_link_mesh_2" file="../assets/mrRM_base_link_visual_vis_2.obj"/>
+  <mesh name="base_link_mesh_3" file="../assets/mrRM_base_link_visual_vis_3.obj"/>
+  <mesh name="base_link_mesh_4" file="../assets/mrRM_base_link_visual_vis_4.obj"/>
+  <mesh name="base_link_mesh_5" file="../assets/mrRM_base_link_visual_vis_5.obj"/>
+  <mesh name="base_link_mesh_6" file="../assets/mrRM_base_link_visual_vis_6.obj"/>
+  <mesh name="base_link_mesh_7" file="../assets/mrRM_base_link_visual_vis_7.obj"/>
+  <mesh name="base_link_mesh_8" file="../assets/mrRM_base_link_visual_vis_8.obj"/>
+  <mesh name="base_link_mesh_9" file="../assets/mrRM_base_link_visual_vis_9.obj"/>
+  <mesh name="base_link_mesh_10" file="../assets/mrRM_base_link_visual_vis_10.obj"/>
+  <mesh name="base_link_mesh_11" file="../assets/mrRM_base_link_visual_vis_11.obj"/>
+  <mesh name="base_link_mesh_12" file="../assets/mrRM_base_link_visual_vis_12.obj"/>
+  <mesh name="base_link_mesh_13" file="../assets/mrRM_base_link_visual_vis_13.obj"/>
+  <mesh name="robot_base_collision_mesh" file="../assets/mrRM_robot_base_coll_1.obj"/>
+  <mesh name="front_hit_sensor_mesh" file="../assets/mrRM_front_hit_sensor_link_visual_vis_1.obj"/>
+  <mesh name="front_led_mesh" file="../assets/mrRM_front_led_link_visual_vis_1.obj"/>
+  <mesh name="left_hit_sensor_mesh" file="../assets/mrRM_left_hit_sensor_link_visual_vis_1.obj"/>
+  <mesh name="left_led_mesh" file="../assets/mrRM_left_led_link_visual_vis_1.obj"/>
+  <mesh name="rear_hit_sensor_mesh" file="../assets/mrRM_rear_hit_sensor_link_visual_vis_1.obj"/>
+  <mesh name="rear_led_mesh" file="../assets/mrRM_rear_led_link_visual_vis_1.obj"/>
+  <mesh name="right_hit_sensor_mesh" file="../assets/mrRM_right_hit_sensor_link_visual_vis_1.obj"/>
+  <mesh name="right_led_mesh" file="../assets/mrRM_right_led_link_visual_vis_1.obj"/>
+  <mesh name="extension_base_mesh_1" file="../assets/mrRM_extension_base_link_visual_vis_1.obj"/>
+  <mesh name="extension_base_mesh_2" file="../assets/mrRM_extension_base_link_visual_vis_2.obj"/>
+  <mesh name="controller_mesh_1" file="../assets/mrRM_intelligent_controller_link_visual_vis_1.obj"/>
+  <mesh name="controller_mesh_2" file="../assets/mrRM_intelligent_controller_link_visual_vis_2.obj"/>
+  <mesh name="controller_mesh_3" file="../assets/mrRM_intelligent_controller_link_visual_vis_3.obj"/>
+  <mesh name="arm_base_mesh_1" file="../assets/mrRM_arm_base_link_visual_vis_1.obj"/>
+  <mesh name="arm_base_mesh_2" file="../assets/mrRM_arm_base_link_visual_vis_2.obj"/>
+  <mesh name="arm_base_mesh_3" file="../assets/mrRM_arm_base_link_visual_vis_3.obj"/>
+  <mesh name="arm_base_mesh_4" file="../assets/mrRM_arm_base_link_visual_vis_4.obj"/>
+  <mesh name="arm_base_collision_mesh" file="../assets/mrRM_arm_base_link_respondable_coll_1.obj"/>
+  <mesh name="arm_1_collision_mesh" file="../assets/mrRM_arm_1_link_respondable_coll_1.obj"/>
+  <mesh name="arm_1_mesh_1" file="../assets/mrRM_arm_1_link_visual_vis_1.obj"/>
+  <mesh name="arm_1_mesh_2" file="../assets/mrRM_arm_1_link_visual_vis_2.obj"/>
+  <mesh name="rod_2_collision_mesh" file="../assets/mrRM_rod_2_link_respondable_coll_1.obj"/>
+  <mesh name="rod_2_visual_mesh" file="../assets/mrRM_rod_2_link_visual_vis_1.obj"/>
+  <mesh name="rod_link_collision_mesh" file="../assets/mrRM_rod_link_respondable_coll_1.obj"/>
+  <mesh name="rod_link_visual_mesh" file="../assets/mrRM_rod_link_visual_vis_1.obj"/>
+  <mesh name="rod_3_collision_mesh" file="../assets/mrRM_rod_3_link_respondable_coll_1.obj"/>
+  <mesh name="rod_3_visual_mesh" file="../assets/mrRM_rod_3_link_visual_vis_1.obj"/>
+  <mesh name="arm_2_collision_mesh" file="../assets/mrRM_arm_2_link_respondable_coll_1.obj"/>
+  <mesh name="arm_2_mesh_1" file="../assets/mrRM_arm_2_link_visual_vis_1.obj"/>
+  <mesh name="arm_2_mesh_2" file="../assets/mrRM_arm_2_link_visual_vis_2.obj"/>
+  <mesh name="arm_2_mesh_3" file="../assets/mrRM_arm_2_link_visual_vis_3.obj"/>
+  <mesh name="triangle_collision_mesh" file="../assets/mrRM_triangle_link_respondable_coll_1.obj"/>
+  <mesh name="triangle_visual_mesh" file="../assets/mrRM_triangle_link_visual_vis_1.obj"/>
+  <mesh name="endpoint_bracket_collision_mesh" file="../assets/mrRM_endpoint_bracket_link_respondable_coll_1.obj"/>
+  <mesh name="endpoint_bracket_visual_mesh" file="../assets/mrRM_endpoint_bracket_link_visual_vis_1.obj"/>
+  <mesh name="rod_1_collision_mesh" file="../assets/mrRM_rod_1_link_respondable_coll_1.obj"/>
+  <mesh name="rod_1_visual_mesh" file="../assets/mrRM_rod_1_link_visual_vis_1.obj"/>
+  <mesh name="gripper_collision_mesh" file="../assets/mrRM_gripper_link_respondable_coll_1.obj"/>
+  <mesh name="gripper_visual_mesh" file="../assets/mrRM_gripper_link_visual_vis_1.obj"/>
+  <mesh name="accelerometer_mesh" file="../assets/mrRM_Accelerometer_vis_1.obj"/>
+  <mesh name="gyrosensor_mesh" file="../assets/mrRM_GyroSensor_vis_1.obj"/>
+  <mesh name="camera_link_mesh" file="../assets/mrRM_camera_link_visual_vis_1.obj"/>
+  <mesh name="left_gripper_1_visual_mesh" file="../assets/mrRM_left_gripper_1_visual_vis_1.obj"/>
+  <mesh name="left_gripper_2_collision_mesh" file="../assets/mrRM_left_gripper_2_respondable_coll_1.obj"/>
+  <mesh name="left_gripper_2_visual_mesh" file="../assets/mrRM_left_gripper_2_visual_vis_1.obj"/>
+  <mesh name="left_gripper_4_collision_mesh" file="../assets/mrRM_left_gripper_4_respondable_coll_1.obj"/>
+  <mesh name="left_gripper_4_visual_mesh" file="../assets/mrRM_left_gripper_4_visual_vis_1.obj"/>
+  <mesh name="left_gripper_5_collision_mesh" file="../assets/mrRM_left_gripper_5_respondable_coll_1.obj"/>
+  <mesh name="left_gripper_5_visual_mesh" file="../assets/mrRM_left_gripper_5_visual_vis_1.obj"/>
+  <mesh name="left_gripper_6_collision_mesh" file="../assets/mrRM_left_gripper_6_respondable_coll_1.obj"/>
+  <mesh name="left_gripper_6_visual_mesh" file="../assets/mrRM_left_gripper_6_visual_vis_1.obj"/>
+  <mesh name="left_gripper_7_collision_mesh" file="../assets/mrRM_left_gripper_7_respondable_coll_1.obj"/>
+  <mesh name="left_gripper_7_visual_mesh" file="../assets/mrRM_left_gripper_7_visual_vis_1.obj"/>
+  <mesh name="right_gripper_1_visual_mesh" file="../assets/mrRM_right_gripper_1_visual_vis_1.obj"/>
+  <mesh name="right_gripper_2_collision_mesh" file="../assets/mrRM_right_gripper_2_respondable_coll_1.obj"/>
+  <mesh name="right_gripper_2_visual_mesh" file="../assets/mrRM_right_gripper_2_visual_vis_1.obj"/>
+  <mesh name="right_gripper_4_collision_mesh" file="../assets/mrRM_right_gripper_4_respondable_coll_1.obj"/>
+  <mesh name="right_gripper_4_visual_mesh" file="../assets/mrRM_right_gripper_4_visual_vis_1.obj"/>
+  <mesh name="right_gripper_5_collision_mesh" file="../assets/mrRM_right_gripper_5_respondable_coll_1.obj"/>
+  <mesh name="right_gripper_5_visual_mesh" file="../assets/mrRM_right_gripper_5_visual_vis_1.obj"/>
+  <mesh name="right_gripper_6_collision_mesh" file="../assets/mrRM_right_gripper_6_respondable_coll_1.obj"/>
+  <mesh name="right_gripper_6_visual_mesh" file="../assets/mrRM_right_gripper_6_visual_vis_1.obj"/>
+  <mesh name="right_gripper_7_collision_mesh" file="../assets/mrRM_right_gripper_7_respondable_coll_1.obj"/>
+  <mesh name="right_gripper_7_visual_mesh" file="../assets/mrRM_right_gripper_7_visual_vis_1.obj"/>
+</mujoco>

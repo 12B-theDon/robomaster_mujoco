@@ -1,0 +1,7 @@
+<mujoco>
+  <body name="controller" pos="-0.132905 0.002221 0.171416" quat="0.70179768 -0.000121505 0.71237629 0.000164158">
+    <geom name="controller_mesh_1" type="mesh" mesh="controller_mesh_1" material="mat_controller" pos="-0.023643 -0.034315 -0.014756" quat="-0.49948994 -0.5004814 0.50050977 0.4995179" mass="0.1"/>
+    <geom name="controller_mesh_2" type="mesh" mesh="controller_mesh_2" material="mat_controller" pos="-0.023643 -0.034315 -0.014756" quat="-0.49948994 -0.5004814 0.50050977 0.4995179" mass="0.1"/>
+    <geom name="controller_mesh_3" type="mesh" mesh="controller_mesh_3" material="mat_controller" pos="-0.023643 -0.034315 -0.014756" quat="-0.49948994 -0.5004814 0.50050977 0.4995179" mass="0.1"/>
+  </body>
+</mujoco>

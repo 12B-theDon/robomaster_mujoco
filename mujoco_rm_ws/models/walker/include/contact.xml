@@ -1,0 +1,5 @@
+<mujoco>
+  <!-- Disable self-collisions for overlapping, kinematically-connected links. -->
+  <exclude body1="arm_base_link" body2="rod_3_link"/>
+  <exclude body1="arm_1_link" body2="rod_link"/>
+</mujoco>

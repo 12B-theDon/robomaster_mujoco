@@ -1,0 +1,6 @@
+<mujoco>
+  <body name="front_sensors" pos="0 0 0">
+    <geom name="front_hit_sensor" type="mesh" mesh="front_hit_sensor_mesh" material="mat_sensor" pos="0.154883 -0.000509 0.077526" quat="-0.00543261 0.00514798 0.70706624 0.70710771" mass="0.05"/>
+    <geom name="front_led" type="mesh" mesh="front_led_mesh" material="mat_led" pos="0.166341 -0.001666 0.077340" quat="-0.70709268 -0.70710435 0.00368822 -0.00312639" mass="0.02"/>
+  </body>
+</mujoco>

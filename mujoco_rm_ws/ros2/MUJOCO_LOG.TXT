@@ -1,0 +1,90 @@
+Mon Dec 22 11:51:02 2025
+WARNING: Nan, Inf or huge value in QVEL at DOF 0. The simulation is unstable. Time = 43.6420.
+
+Mon Dec 22 14:29:29 2025
+WARNING: Nan, Inf or huge value in QACC at DOF 6. The simulation is unstable. Time = 0.0020.
+
+Mon Dec 22 14:29:52 2025
+WARNING: Nan, Inf or huge value in QACC at DOF 6. The simulation is unstable. Time = 0.0020.
+
+Mon Dec 22 14:30:20 2025
+WARNING: Nan, Inf or huge value in QACC at DOF 6. The simulation is unstable. Time = 0.0020.
+
+Mon Dec 22 14:31:01 2025
+WARNING: Nan, Inf or huge value in QACC at DOF 6. The simulation is unstable. Time = 0.0020.
+
+Tue Dec 23 01:51:17 2025
+ERROR: Python exception raised
+
+Tue Dec 23 02:09:18 2025
+ERROR: Python exception raised
+
+Tue Dec 23 02:45:55 2025
+ERROR: Python exception raised
+
+Tue Dec 23 02:45:58 2025
+ERROR: Python exception raised
+
+Tue Dec 23 02:56:29 2025
+ERROR: Python exception raised
+
+Mon Dec 29 07:30:34 2025
+WARNING: Nan, Inf or huge value in QACC at DOF 18. The simulation is unstable. Time = 45.1320.
+
+Mon Dec 29 09:36:31 2025
+ERROR: Python exception raised
+
+Mon Dec 29 10:13:26 2025
+ERROR: Python exception raised
+
+Mon Dec 29 10:15:29 2025
+ERROR: Python exception raised
+
+Mon Dec 29 11:04:44 2025
+WARNING: Nan, Inf or huge value in QACC at DOF 13. The simulation is unstable. Time = 3.2840.
+
+Mon Dec 29 11:05:20 2025
+WARNING: Nan, Inf or huge value in QACC at DOF 13. The simulation is unstable. Time = 3.2840.
+
+Mon Dec 29 11:05:40 2025
+WARNING: Nan, Inf or huge value in QACC at DOF 13. The simulation is unstable. Time = 3.2840.
+
+Mon Dec 29 11:05:43 2025
+WARNING: Nan, Inf or huge value in QACC at DOF 13. The simulation is unstable. Time = 3.2840.
+
+Mon Dec 29 11:06:21 2025
+WARNING: Nan, Inf or huge value in QACC at DOF 13. The simulation is unstable. Time = 3.2840.
+
+Mon Dec 29 11:07:36 2025
+WARNING: Nan, Inf or huge value in QACC at DOF 13. The simulation is unstable. Time = 3.2840.
+
+Mon Dec 29 11:09:42 2025
+WARNING: Nan, Inf or huge value in QACC at DOF 13. The simulation is unstable. Time = 3.2840.
+
+Mon Dec 29 11:09:59 2025
+WARNING: Nan, Inf or huge value in QACC at DOF 13. The simulation is unstable. Time = 3.2840.
+
+Mon Dec 29 11:16:27 2025
+WARNING: Nan, Inf or huge value in QACC at DOF 13. The simulation is unstable. Time = 3.2840.
+
+Mon Dec 29 11:19:30 2025
+WARNING: Nan, Inf or huge value in QACC at DOF 13. The simulation is unstable. Time = 3.2840.
+
+Mon Dec 29 11:19:43 2025
+WARNING: Nan, Inf or huge value in QACC at DOF 13. The simulation is unstable. Time = 3.2840.
+
+Mon Dec 29 11:20:01 2025
+WARNING: Nan, Inf or huge value in QACC at DOF 13. The simulation is unstable. Time = 3.2840.
+
+Mon Dec 29 11:20:27 2025
+WARNING: Nan, Inf or huge value in QACC at DOF 13. The simulation is unstable. Time = 3.2840.
+
+Mon Dec 29 11:22:29 2025
+WARNING: Nan, Inf or huge value in QACC at DOF 13. The simulation is unstable. Time = 3.2840.
+
+Mon Dec 29 11:29:45 2025
+ERROR: Python exception raised
+
+Mon Dec 29 13:00:15 2025
+WARNING: Nan, Inf or huge value in QACC at DOF 18. The simulation is unstable. Time = 12.9260.
+

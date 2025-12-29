@@ -1,0 +1,23 @@
+teleop_twist_joy:
+  ros__parameters:
+    enable_button: 5                 # RB (Deadman)
+    require_enable_button: true
+
+    # mecanum base supports x/y translation + yaw
+    axis_linear:
+      x: 1                           # left stick up/down
+      y: 0                           # left stick left/right
+    axis_angular:
+      yaw: 3                         # right stick left/right
+
+    # Scales (tune to taste; MuJoCo clamps to model actuator ctrlrange)
+    scale_linear:
+      x: 2.8
+      y: 2.8
+    scale_linear_turbo:
+      x: 2.8
+      y: 2.8
+    scale_angular:
+      yaw: 10.472
+    scale_angular_turbo:
+      yaw: 10.472

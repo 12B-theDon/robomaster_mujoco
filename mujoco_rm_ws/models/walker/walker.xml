@@ -1,0 +1,41 @@
+<mujoco model="rm_walker">
+  <compiler angle="radian" coordinate="local" autolimits="true" inertiafromgeom="true" settotalmass="3.3"/>
+  <option timestep="0.001" cone="elliptic" iterations="500" noslip_iterations="30" noslip_tolerance="1e-8" integrator="implicitfast" gravity="0 0 -9.81" tolerance="1e-12"/>
+  <size njmax="400" nconmax="80" nstack="200000"/>
+
+  <visual>
+    <map znear="0.001" zfar="200"/>
+  </visual>
+
+  <include file="./include/defaults.xml"/>
+
+  <asset>
+    <include file="./include/assets.xml"/>
+  </asset>
+
+  <worldbody>
+    <include file="./include/arena.xml"/>
+    <body name="builder_root" pos="0 0 0.0">
+      <freejoint name="builder_free"/>
+      <geom name="builder_stub" type="sphere" size="0.01" mass="1e-3" rgba="0 0 0 0" contype="0" conaffinity="0"/>
+      <site name="build_anchor" pos="0 0 0" size="0.04" rgba="0.2 0.8 0.4 0.6"/>
+      <include file="./include/base_link.xml"/>
+    </body>
+  </worldbody>
+
+  <actuator>
+    <include file="./include/actuators.xml"/>
+  </actuator>
+
+  <tendon>
+    <include file="./include/tendons.xml"/>
+  </tendon>
+
+  <contact>
+    <include file="./include/contact.xml"/>
+  </contact>
+
+  <equality>
+    <include file="./include/equalities.xml"/>
+  </equality>
+</mujoco>

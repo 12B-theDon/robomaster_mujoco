@@ -1,0 +1,21 @@
+<mujoco>
+  <!-- Differential-like drive (v, w) mapped to 4 wheel spin joints.
+       Assumptions: wheel radius r=0.05m, track width L=0.20m.
+       Tendon velocity equals the physical command:
+         vx = (r/4) * sum(omega_i)
+         wz = (r/(4L)) * (omega_right_sum - omega_left_sum) -->
+
+  <fixed name="base_vx_tendon">
+    <joint joint="wheel_front_left_spin" coef="0.0125"/>
+    <joint joint="wheel_rear_left_spin" coef="0.0125"/>
+    <joint joint="wheel_front_right_spin" coef="0.0125"/>
+    <joint joint="wheel_rear_right_spin" coef="0.0125"/>
+  </fixed>
+
+  <fixed name="base_wz_tendon">
+    <joint joint="wheel_front_left_spin" coef="-0.0625"/>
+    <joint joint="wheel_rear_left_spin" coef="-0.0625"/>
+    <joint joint="wheel_front_right_spin" coef="0.0625"/>
+    <joint joint="wheel_rear_right_spin" coef="0.0625"/>
+  </fixed>
+</mujoco>

@@ -1,0 +1,12 @@
+<mujoco>
+  <!-- Treat these couplers like rigid rods tying the auxiliary linkage to the arm tip -->
+  <connect name="triangle_rod2_pin_a" site1="rod2_triangle_anchor_a" site2="triangle_rod2_anchor_a" solref="0.01 1" solimp="0.98 0.99 0.001"/>
+  <connect name="triangle_rod2_pin_b" site1="rod2_triangle_anchor_b" site2="triangle_rod2_anchor_b" solref="0.01 1" solimp="0.98 0.99 0.001"/>
+  <connect name="triangle_rod1_pin_a" site1="rod1_triangle_anchor_a" site2="triangle_rod1_anchor_a" solref="0.01 1" solimp="0.98 0.99 0.001"/>
+  <connect name="triangle_rod1_pin_b" site1="rod1_triangle_anchor_b" site2="triangle_rod1_anchor_b" solref="0.01 1" solimp="0.98 0.99 0.001"/>
+  <connect name="arm2_rod3_pin_a" site1="arm2_rod3_anchor_a" site2="rod3_anchor_a" solref="0.01 1" solimp="0.98 0.99 0.001"/>
+  <connect name="arm2_rod3_pin_b" site1="arm2_rod3_anchor_b" site2="rod3_anchor_b" solref="0.01 1" solimp="0.98 0.99 0.001"/>
+
+  <!-- Keep left/right jaws symmetric (hinge close/open). -->
+  <joint name="gripper_couple" joint1="gripper_hinge_left" joint2="gripper_hinge_right" polycoef="0 -1 0 0 0" solref="0.001 1" solimp="0.999 0.999 0.0001"/>
+</mujoco>

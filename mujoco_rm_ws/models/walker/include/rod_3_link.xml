@@ -1,0 +1,11 @@
+<mujoco>
+   <body name="rod_3_link" pos="-0.042397 -0.022313 0.000453" quat="1 0 0 0">
+    <!-- This is a passive linkage joint; keep damping/armature low so the driven servos aren't fighting large artificial resistance. -->
+    <joint name="rod_3_joint" type="hinge" axis="0 0 1" limited="true"
+           range="-0.34732049703598 1.2147491574287" damping="0.05" armature="0.005"/>
+    <geom name="rod_3_visual" type="mesh" mesh="rod_3_visual_mesh" material="mat_arm_link" pos="-0.001198 -0.060431 -0.000001" quat="0.50478348 0.49517013 0.50475609 -0.49519841" mass="0" contype="0" conaffinity="0"/>
+    <geom name="rod_3_collision" type="mesh" mesh="rod_3_collision_mesh" material="mat_collision" pos="-0.001156 -0.060516 0.000009" quat="0.50564572 0.49428947 0.50561902 -0.49431743" contype="1" conaffinity="1" density="236.55" group="3"/>
+    <site name="rod3_anchor_a" pos="-0.00077553301 -0.13005332 0.0000041478" quat="0.70180072 0.00011808 0.71237329 0.00016745" size="0.01" rgba="0.9 0.4 0.2 0.7"/>
+    <site name="rod3_anchor_b" pos="-0.00077148873 -0.13005275383 0.01000414697" quat="0.70180072 0.00011808 0.71237329 0.00016745" size="0.01" rgba="0.9 0.4 0.2 0.7"/>
+  </body>
+</mujoco>

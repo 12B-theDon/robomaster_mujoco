@@ -1,0 +1,997 @@
+<?xml version="1.0"?>
+<robot name="RoboMaster">
+    <link name="base_link" />
+    <joint name="base_link_to_robot_base" type="fixed">
+        <parent link="base_link" />
+        <child link="robot_base" />
+        <origin xyz="0 0 0" rpy="0 0 0" />
+    </joint>
+    <link name="robot_base">
+        <inertial>
+            <origin rpy="-0.000000 -1.570796 0.000000" xyz="-0.005513 -0.000321 0.066029" />
+            <inertia ixx="0.017589308201487" izz="0.01451068068707" iyz="-3.7897668285013e-06" iyy="0.0051199987327979" ixz="-4.6110514572507e-05" ixy="-7.7439198790158e-07" />
+            <mass value="1.9340000152588" />
+        </inertial>
+        <collision name="RoboMaster">
+            <origin xyz="0.000000 0.000000 0.067444" rpy="0.000000 -1.570796 0.000000" />
+            <geometry>
+                <mesh filename="file:///CoppeliaSim_Edu_V4_10_0_rev0_Ubuntu22_04/myRM/mrRM_robot_base_coll_1.dae" />
+            </geometry>
+        </collision>
+        <visual name="base_link_visual">
+            <origin xyz="0.002326 -0.002002 0.053802" rpy="-0.007984 4.678589 -3.133558" />
+            <geometry>
+                <mesh filename="file:///CoppeliaSim_Edu_V4_10_0_rev0_Ubuntu22_04/myRM/mrRM_base_link_visual_vis_1.dae" />
+            </geometry>
+        </visual>
+        <visual name="base_link_visual">
+            <origin xyz="0.002326 -0.002002 0.053802" rpy="-0.007984 4.678589 -3.133558" />
+            <geometry>
+                <mesh filename="file:///CoppeliaSim_Edu_V4_10_0_rev0_Ubuntu22_04/myRM/mrRM_base_link_visual_vis_2.dae" />
+            </geometry>
+        </visual>
+        <visual name="base_link_visual">
+            <origin xyz="0.002326 -0.002002 0.053802" rpy="-0.007984 4.678589 -3.133558" />
+            <geometry>
+                <mesh filename="file:///CoppeliaSim_Edu_V4_10_0_rev0_Ubuntu22_04/myRM/mrRM_base_link_visual_vis_3.dae" />
+            </geometry>
+        </visual>
+        <visual name="base_link_visual">
+            <origin xyz="0.002326 -0.002002 0.053802" rpy="-0.007984 4.678589 -3.133558" />
+            <geometry>
+                <mesh filename="file:///CoppeliaSim_Edu_V4_10_0_rev0_Ubuntu22_04/myRM/mrRM_base_link_visual_vis_4.dae" />
+            </geometry>
+        </visual>
+        <visual name="base_link_visual">
+            <origin xyz="0.002326 -0.002002 0.053802" rpy="-0.007984 4.678589 -3.133558" />
+            <geometry>
+                <mesh filename="file:///CoppeliaSim_Edu_V4_10_0_rev0_Ubuntu22_04/myRM/mrRM_base_link_visual_vis_5.dae" />
+            </geometry>
+        </visual>
+        <visual name="base_link_visual">
+            <origin xyz="0.002326 -0.002002 0.053802" rpy="-0.007984 4.678589 -3.133558" />
+            <geometry>
+                <mesh filename="file:///CoppeliaSim_Edu_V4_10_0_rev0_Ubuntu22_04/myRM/mrRM_base_link_visual_vis_6.dae" />
+            </geometry>
+        </visual>
+        <visual name="base_link_visual">
+            <origin xyz="0.002326 -0.002002 0.053802" rpy="-0.007984 4.678589 -3.133558" />
+            <geometry>
+                <mesh filename="file:///CoppeliaSim_Edu_V4_10_0_rev0_Ubuntu22_04/myRM/mrRM_base_link_visual_vis_7.dae" />
+            </geometry>
+        </visual>
+        <visual name="base_link_visual">
+            <origin xyz="0.002326 -0.002002 0.053802" rpy="-0.007984 4.678589 -3.133558" />
+            <geometry>
+                <mesh filename="file:///CoppeliaSim_Edu_V4_10_0_rev0_Ubuntu22_04/myRM/mrRM_base_link_visual_vis_8.dae" />
+            </geometry>
+        </visual>
+        <visual name="base_link_visual">
+            <origin xyz="0.002326 -0.002002 0.053802" rpy="-0.007984 4.678589 -3.133558" />
+            <geometry>
+                <mesh filename="file:///CoppeliaSim_Edu_V4_10_0_rev0_Ubuntu22_04/myRM/mrRM_base_link_visual_vis_9.dae" />
+            </geometry>
+        </visual>
+        <visual name="base_link_visual">
+            <origin xyz="0.002326 -0.002002 0.053802" rpy="-0.007984 4.678589 -3.133558" />
+            <geometry>
+                <mesh filename="file:///CoppeliaSim_Edu_V4_10_0_rev0_Ubuntu22_04/myRM/mrRM_base_link_visual_vis_10.dae" />
+            </geometry>
+        </visual>
+        <visual name="base_link_visual">
+            <origin xyz="0.002326 -0.002002 0.053802" rpy="-0.007984 4.678589 -3.133558" />
+            <geometry>
+                <mesh filename="file:///CoppeliaSim_Edu_V4_10_0_rev0_Ubuntu22_04/myRM/mrRM_base_link_visual_vis_11.dae" />
+            </geometry>
+        </visual>
+        <visual name="base_link_visual">
+            <origin xyz="0.002326 -0.002002 0.053802" rpy="-0.007984 4.678589 -3.133558" />
+            <geometry>
+                <mesh filename="file:///CoppeliaSim_Edu_V4_10_0_rev0_Ubuntu22_04/myRM/mrRM_base_link_visual_vis_12.dae" />
+            </geometry>
+        </visual>
+        <visual name="base_link_visual">
+            <origin xyz="0.002326 -0.002002 0.053802" rpy="-0.007984 4.678589 -3.133558" />
+            <geometry>
+                <mesh filename="file:///CoppeliaSim_Edu_V4_10_0_rev0_Ubuntu22_04/myRM/mrRM_base_link_visual_vis_13.dae" />
+            </geometry>
+        </visual>
+        <visual name="front_hit_sensor_link_visual">
+            <origin xyz="0.154883 -0.000509 0.077526" rpy="-1.570858 3.156556 0.000403" />
+            <geometry>
+                <mesh filename="file:///CoppeliaSim_Edu_V4_10_0_rev0_Ubuntu22_04/myRM/mrRM_front_hit_sensor_link_visual_vis_1.dae" />
+            </geometry>
+        </visual>
+        <visual name="front_led_link_visual">
+            <origin xyz="0.166341 -0.001666 0.077340" rpy="-1.570776 3.151230 3.140798" />
+            <geometry>
+                <mesh filename="file:///CoppeliaSim_Edu_V4_10_0_rev0_Ubuntu22_04/myRM/mrRM_front_led_link_visual_vis_1.dae" />
+            </geometry>
+        </visual>
+        <visual name="left_hit_sensor_link_visual">
+            <origin xyz="-0.002040 0.085820 0.066425" rpy="1.555835 3.141586 1.571201" />
+            <geometry>
+                <mesh filename="file:///CoppeliaSim_Edu_V4_10_0_rev0_Ubuntu22_04/myRM/mrRM_left_hit_sensor_link_visual_vis_1.dae" />
+            </geometry>
+        </visual>
+        <visual name="left_led_link_visual">
+            <origin xyz="-0.003518 0.096630 0.066595" rpy="1.558170 3.174514 1.571616" />
+            <geometry>
+                <mesh filename="file:///CoppeliaSim_Edu_V4_10_0_rev0_Ubuntu22_04/myRM/mrRM_left_led_link_visual_vis_1.dae" />
+            </geometry>
+        </visual>
+        <visual name="rear_hit_sensor_link_visual">
+            <origin xyz="-0.155119 -0.002990 0.069243" rpy="1.570860 3.126629 -3.141188" />
+            <geometry>
+                <mesh filename="file:///CoppeliaSim_Edu_V4_10_0_rev0_Ubuntu22_04/myRM/mrRM_rear_hit_sensor_link_visual_vis_1.dae" />
+            </geometry>
+        </visual>
+        <visual name="rear_led_link_visual">
+            <origin xyz="-0.165956 -0.000894 0.069047" rpy="-1.570639 3.191801 -0.000609" />
+            <geometry>
+                <mesh filename="file:///CoppeliaSim_Edu_V4_10_0_rev0_Ubuntu22_04/myRM/mrRM_rear_led_link_visual_vis_1.dae" />
+            </geometry>
+        </visual>
+        <visual name="right_hit_sensor_link_visual">
+            <origin xyz="-0.001971 -0.084315 0.066414" rpy="1.555835 3.141586 1.571201" />
+            <geometry>
+                <mesh filename="file:///CoppeliaSim_Edu_V4_10_0_rev0_Ubuntu22_04/myRM/mrRM_right_hit_sensor_link_visual_vis_1.dae" />
+            </geometry>
+        </visual>
+        <visual name="right_led_link_visual">
+            <origin xyz="-0.001984 -0.097961 0.066579" rpy="-1.586849 3.142395 1.571214" />
+            <geometry>
+                <mesh filename="file:///CoppeliaSim_Edu_V4_10_0_rev0_Ubuntu22_04/myRM/mrRM_right_led_link_visual_vis_1.dae" />
+            </geometry>
+        </visual>
+        <visual name="GyroSensor">
+            <origin xyz="0.000000 0.000000 0.067444" rpy="-3.141593 3.141593 -3.141593" />
+            <geometry>
+                <mesh filename="file:///CoppeliaSim_Edu_V4_10_0_rev0_Ubuntu22_04/myRM/mrRM_GyroSensor_vis_1.dae" />
+            </geometry>
+        </visual>
+        <visual name="Accelerometer">
+            <origin xyz="0.000000 0.000000 0.067444" rpy="-3.141593 3.141593 -3.141593" />
+            <geometry>
+                <mesh filename="file:///CoppeliaSim_Edu_V4_10_0_rev0_Ubuntu22_04/myRM/mrRM_Accelerometer_vis_1.dae" />
+            </geometry>
+        </visual>
+        <visual name="reference">
+            <origin xyz="0.000000 0.000000 0.067444" rpy="-3.141593 3.141593 -3.141593" />
+            <geometry>
+                <box size="0.010000 0.010000 0.010000" />
+            </geometry>
+        </visual>
+        <visual name="BaseLinkFrame">
+            <origin xyz="0.000000 0.000000 -0.000000" rpy="-3.141593 3.141593 -3.141593" />
+            <geometry>
+                <box size="0.010000 0.010000 0.010000" />
+            </geometry>
+        </visual>
+    </link>
+    <joint name="arm_base_attachment_joint" type="fixed">
+        <axis xyz="0 0 1" />
+        <parent link="robot_base" />
+        <child link="arm_base_link_respondable" />
+        <origin xyz="0.001280 0.000830 0.127151" rpy="-0.004234 1.585757 -0.003830" />
+    </joint>
+    <link name="arm_base_link_respondable">
+        <inertial>
+            <origin rpy="1.570799 3.141592 -0.010468" xyz="0.000000 0.000000 -0.000000" />
+            <inertia ixx="0.00072019468651553" izz="0.0024997998783834" iyz="5.7190505382992e-10" iyy="0.0022999993508077" ixz="-1.8631618966786e-05" ixy="-2.9647946187585e-11" />
+            <mass value="0.30000001192093" />
+        </inertial>
+        <collision name="arm_base_link_respondable">
+            <origin xyz="-0.010620 -0.000534 -0.002359" rpy="1.570799 3.141592 -0.010468" />
+            <geometry>
+                <mesh filename="file:///CoppeliaSim_Edu_V4_10_0_rev0_Ubuntu22_04/myRM/mrRM_arm_base_link_respondable_coll_1.dae" />
+            </geometry>
+        </collision>
+        <visual name="arm_base_link_visual">
+            <origin xyz="-0.031605 0.046821 -0.001128" rpy="0.000000 3.141592 0.000000" />
+            <geometry>
+                <mesh filename="file:///CoppeliaSim_Edu_V4_10_0_rev0_Ubuntu22_04/myRM/mrRM_arm_base_link_visual_vis_1.dae" />
+            </geometry>
+        </visual>
+        <visual name="arm_base_link_visual">
+            <origin xyz="-0.031605 0.046821 -0.001128" rpy="0.000000 3.141592 0.000000" />
+            <geometry>
+                <mesh filename="file:///CoppeliaSim_Edu_V4_10_0_rev0_Ubuntu22_04/myRM/mrRM_arm_base_link_visual_vis_2.dae" />
+            </geometry>
+        </visual>
+        <visual name="arm_base_link_visual">
+            <origin xyz="-0.031605 0.046821 -0.001128" rpy="0.000000 3.141592 0.000000" />
+            <geometry>
+                <mesh filename="file:///CoppeliaSim_Edu_V4_10_0_rev0_Ubuntu22_04/myRM/mrRM_arm_base_link_visual_vis_3.dae" />
+            </geometry>
+        </visual>
+        <visual name="arm_base_link_visual">
+            <origin xyz="-0.031605 0.046821 -0.001128" rpy="0.000000 3.141592 0.000000" />
+            <geometry>
+                <mesh filename="file:///CoppeliaSim_Edu_V4_10_0_rev0_Ubuntu22_04/myRM/mrRM_arm_base_link_visual_vis_4.dae" />
+            </geometry>
+        </visual>
+    </link>
+    <joint name="servo_motor_1" type="revolute">
+        <axis xyz="0 0 1" />
+        <limit velocity="5.1312680008637" lower="-0.27401667833328" effort="10.0" upper="1.3840461373329" />
+        <parent link="arm_base_link_respondable" />
+        <child link="arm_1_link_respondable" />
+        <origin xyz="-0.030741 -0.025571 0.010396" rpy="-1.570797 -1.570796 0.000000" />
+    </joint>
+    <link name="arm_1_link_respondable">
+        <inertial>
+            <origin rpy="1.570958 3.142942 0.060996" xyz="-0.000559 -0.001173 0.023592" />
+            <inertia ixx="0.015559326757555" izz="0.0018599644109959" iyz="0.0022918940812945" iyy="0.016156487726318" ixz="-0.00084468883193591" ixy="0.00016358625834718" />
+            <mass value="0.056000001728535" />
+        </inertial>
+        <collision name="arm_1_link_respondable">
+            <origin xyz="0.006169 -0.058604 0.023587" rpy="1.570958 3.142942 0.060996" />
+            <geometry>
+                <mesh filename="file:///CoppeliaSim_Edu_V4_10_0_rev0_Ubuntu22_04/myRM/mrRM_arm_1_link_respondable_coll_1.dae" />
+            </geometry>
+        </collision>
+        <visual name="arm_1_link_visual">
+            <origin xyz="0.006193 -0.058505 0.023577" rpy="-1.571053 3.144842 0.056227" />
+            <geometry>
+                <mesh filename="file:///CoppeliaSim_Edu_V4_10_0_rev0_Ubuntu22_04/myRM/mrRM_arm_1_link_visual_vis_1.dae" />
+            </geometry>
+        </visual>
+        <visual name="arm_1_link_visual">
+            <origin xyz="0.006193 -0.058505 0.023577" rpy="-1.571053 3.144842 0.056227" />
+            <geometry>
+                <mesh filename="file:///CoppeliaSim_Edu_V4_10_0_rev0_Ubuntu22_04/myRM/mrRM_arm_1_link_visual_vis_2.dae" />
+            </geometry>
+        </visual>
+    </link>
+    <joint name="arm_2_link" type="continuous">
+        <axis xyz="0 0 1" />
+        <parent link="arm_1_link_respondable" />
+        <child link="arm_2_link_respondable" />
+        <origin xyz="0.001870 -0.121024 0.043866" rpy="-3.141593 3.141593 3.141593" />
+    </joint>
+    <link name="arm_2_link_respondable">
+        <inertial>
+            <origin rpy="1.571916 3.141590 2.055180" xyz="0.037006 0.006990 -0.020273" />
+            <inertia ixx="0.011862393352485" izz="0.011470737200884" iyz="0.0" iyy="0.0028439997991025" ixz="0.0" ixy="0.0" />
+            <mass value="0.079999998211861" />
+        </inertial>
+        <collision name="arm_2_link_respondable">
+            <origin xyz="0.037006 0.006990 -0.020273" rpy="1.571916 3.141590 2.055180" />
+            <geometry>
+                <mesh filename="file:///CoppeliaSim_Edu_V4_10_0_rev0_Ubuntu22_04/myRM/mrRM_arm_2_link_respondable_coll_1.dae" />
+            </geometry>
+        </collision>
+        <visual name="arm_2_link_visual">
+            <origin xyz="-0.042409 -0.022317 -0.018784" rpy="0.000087 3.141340 1.789281" />
+            <geometry>
+                <mesh filename="file:///CoppeliaSim_Edu_V4_10_0_rev0_Ubuntu22_04/myRM/mrRM_arm_2_link_visual_vis_1.dae" />
+            </geometry>
+        </visual>
+        <visual name="arm_2_link_visual">
+            <origin xyz="-0.042409 -0.022317 -0.018784" rpy="0.000087 3.141340 1.789281" />
+            <geometry>
+                <mesh filename="file:///CoppeliaSim_Edu_V4_10_0_rev0_Ubuntu22_04/myRM/mrRM_arm_2_link_visual_vis_2.dae" />
+            </geometry>
+        </visual>
+        <visual name="arm_2_link_visual">
+            <origin xyz="-0.042409 -0.022317 -0.018784" rpy="0.000087 3.141340 1.789281" />
+            <geometry>
+                <mesh filename="file:///CoppeliaSim_Edu_V4_10_0_rev0_Ubuntu22_04/myRM/mrRM_arm_2_link_visual_vis_3.dae" />
+            </geometry>
+        </visual>
+    </link>
+    <joint name="endpoint_bracket_link" type="continuous">
+        <axis xyz="0 0 1" />
+        <parent link="arm_2_link_respondable" />
+        <child link="endpoint_bracket_link_respondable" />
+        <origin xyz="0.105856 0.056109 0.006752" rpy="3.141593 3.141593 -3.141593" />
+    </joint>
+    <link name="endpoint_bracket_link_respondable">
+        <inertial>
+            <origin rpy="3.141592 3.141493 -3.141144" xyz="0.010954 -0.003580 -0.026963" />
+            <inertia ixx="0.00040727315982636" izz="0.00087104518419963" iyz="1.0337051069284e-13" iyy="0.00081677997398229" ixz="6.4361297454528e-21" ixy="1.2260267969261e-29" />
+            <mass value="0.028000000864267" />
+        </inertial>
+        <collision name="endpoint_bracket_link_respondable">
+            <origin xyz="0.010956 -0.008580 -0.026963" rpy="3.141592 3.141493 -3.141144" />
+            <geometry>
+                <mesh filename="file:///CoppeliaSim_Edu_V4_10_0_rev0_Ubuntu22_04/myRM/mrRM_endpoint_bracket_link_respondable_coll_1.dae" />
+            </geometry>
+        </collision>
+        <visual name="endpoint_bracket_link_visual">
+            <origin xyz="0.011018 -0.008561 -0.025835" rpy="3.141592 3.141494 -3.141146" />
+            <geometry>
+                <mesh filename="file:///CoppeliaSim_Edu_V4_10_0_rev0_Ubuntu22_04/myRM/mrRM_endpoint_bracket_link_visual_vis_1.dae" />
+            </geometry>
+        </visual>
+    </link>
+    <joint name="rod_1_link" type="continuous">
+        <axis xyz="0 0 1" />
+        <parent link="endpoint_bracket_link_respondable" />
+        <child link="rod_1_link_respondable" />
+        <origin xyz="0.013458 -0.021307 -0.054097" rpy="-3.141593 3.141593 3.120300" />
+    </joint>
+    <link name="rod_1_link_respondable">
+        <inertial>
+            <origin rpy="-1.118678 4.712385 -1.517352" xyz="-0.050842 -0.031213 0.000000" />
+            <inertia ixx="0.0016030948301425" izz="0.0015681275861672" iyz="0.0" iyy="3.6269925849996e-05" ixz="0.0" ixy="0.0" />
+            <mass value="0.012000000104308" />
+        </inertial>
+        <collision name="rod_1_link_respondable">
+            <origin xyz="-0.050842 -0.031213 0.000000" rpy="-1.118678 4.712385 -1.517352" />
+            <geometry>
+                <mesh filename="file:///CoppeliaSim_Edu_V4_10_0_rev0_Ubuntu22_04/myRM/mrRM_rod_1_link_respondable_coll_1.dae" />
+            </geometry>
+        </collision>
+        <visual name="rod_1_link_visual">
+            <origin xyz="-0.050750 -0.031179 -0.000002" rpy="0.488407 4.712387 -3.123125" />
+            <geometry>
+                <mesh filename="file:///CoppeliaSim_Edu_V4_10_0_rev0_Ubuntu22_04/myRM/mrRM_rod_1_link_visual_vis_1.dae" />
+            </geometry>
+        </visual>
+    </link>
+    <joint name="Force_sensor" type="fixed">
+        <axis xyz="0 0 1" />
+        <parent link="endpoint_bracket_link_respondable" />
+        <child link="gripper_link_respondable" />
+        <origin xyz="0.011017 0.008439 -0.025846" rpy="-1.570745 3.141593 3.141592" />
+    </joint>
+    <link name="gripper_link_respondable">
+        <inertial>
+            <origin rpy="-1.570796 3.141542 -1.570796" xyz="0.016000 -0.000001 -0.028000" />
+            <inertia ixx="2.0700001281872e-05" izz="3.7500003271271e-05" iyz="0.0" iyy="3.8699999359623e-05" ixz="0.0" ixy="0.0" />
+            <mass value="0.15000000596046" />
+        </inertial>
+        <collision name="gripper_link_respondable">
+            <origin xyz="0.021000 -0.000000 -0.003000" rpy="-1.570796 3.141542 -1.570796" />
+            <geometry>
+                <mesh filename="file:///CoppeliaSim_Edu_V4_10_0_rev0_Ubuntu22_04/myRM/mrRM_gripper_link_respondable_coll_1.dae" />
+            </geometry>
+        </collision>
+        <visual name="gripper_link_visual">
+            <origin xyz="0.022420 0.000097 -0.020564" rpy="2.997433 4.712040 -2.997433" />
+            <geometry>
+                <mesh filename="file:///CoppeliaSim_Edu_V4_10_0_rev0_Ubuntu22_04/myRM/mrRM_gripper_link_visual_vis_1.dae" />
+            </geometry>
+        </visual>
+    </link>
+    <joint name="Prismatic_joint" type="prismatic">
+        <axis xyz="0 0 1" />
+        <limit velocity="10.0" lower="-0.023000000044703" effort="1000.0" upper="0.0010000001639128" />
+        <parent link="gripper_link_respondable" />
+        <child link="Cuboid0" />
+        <origin xyz="0.046128 -0.000017 -0.043220" rpy="1.570796 4.712339 -1.570796" />
+    </joint>
+    <link name="Cuboid0">
+        <inertial>
+            <origin rpy="-0.000000 1.570796 0.000000" xyz="0.050000 -0.000000 0.038006" />
+            <inertia ixx="1.499999851454e-07" izz="1.499999851454e-07" iyz="0.0" iyy="4.9999993229479e-08" ixz="0.0" ixy="0.0" />
+            <mass value="0.0029999995604157" />
+        </inertial>
+        <collision name="Cuboid0">
+            <origin xyz="0.050000 -0.000000 0.038006" rpy="-0.000000 1.570796 0.000000" />
+            <geometry>
+                <box size="0.010000 0.030000 0.010000" />
+            </geometry>
+        </collision>
+    </link>
+    <joint name="left_gripper_1" type="continuous">
+        <axis xyz="0 0 1" />
+        <parent link="Cuboid0" />
+        <child link="left_gripper_1_visual" />
+        <origin xyz="0.011580 0.021316 0.040763" rpy="-0.000000 1.570796 0.000000" />
+    </joint>
+    <link name="left_gripper_1_visual">
+        <visual name="left_gripper_1_visual">
+            <origin xyz="0.010995 0.006202 -0.000007" rpy="-1.570868 3.159129 -1.032086" />
+            <geometry>
+                <mesh filename="file:///CoppeliaSim_Edu_V4_10_0_rev0_Ubuntu22_04/myRM/mrRM_left_gripper_1_visual_vis_1.dae" />
+            </geometry>
+        </visual>
+    </link>
+    <joint name="left_gripper_2" type="continuous">
+        <axis xyz="0 0 1" />
+        <parent link="left_gripper_1_visual" />
+        <child link="left_gripper_2_respondable" />
+        <origin xyz="0.021349 0.013036 -0.000000" rpy="3.141593 3.141593 3.141593" />
+    </joint>
+    <link name="left_gripper_2_respondable">
+        <collision name="left_gripper_2_respondable">
+            <origin xyz="0.008922 0.009093 0.000093" rpy="-1.727626 -1.570796 0.000000" />
+            <geometry>
+                <mesh filename="file:///CoppeliaSim_Edu_V4_10_0_rev0_Ubuntu22_04/myRM/mrRM_left_gripper_2_respondable_coll_1.dae" />
+            </geometry>
+        </collision>
+        <visual name="left_gripper_2_visual">
+            <origin xyz="0.003857 0.006381 0.000278" rpy="-1.187774 -1.570796 0.000000" />
+            <geometry>
+                <mesh filename="file:///CoppeliaSim_Edu_V4_10_0_rev0_Ubuntu22_04/myRM/mrRM_left_gripper_2_visual_vis_1.dae" />
+            </geometry>
+        </visual>
+    </link>
+    <joint name="left_gripper_4" type="continuous">
+        <axis xyz="0 0 1" />
+        <parent link="left_gripper_2_respondable" />
+        <child link="left_gripper_4_respondable" />
+        <origin xyz="0.004850 0.020415 -0.000006" rpy="3.141593 3.141593 -3.141593" />
+    </joint>
+    <link name="left_gripper_4_respondable">
+        <collision name="left_gripper_4_respondable">
+            <origin xyz="0.020378 0.001798 0.000098" rpy="-2.889531 -1.570796 0.000000" />
+            <geometry>
+                <mesh filename="file:///CoppeliaSim_Edu_V4_10_0_rev0_Ubuntu22_04/myRM/mrRM_left_gripper_4_respondable_coll_1.dae" />
+            </geometry>
+        </collision>
+        <visual name="left_gripper_4_visual">
+            <origin xyz="0.020094 0.002762 -0.000001" rpy="0.320190 -1.570796 0.000000" />
+            <geometry>
+                <mesh filename="file:///CoppeliaSim_Edu_V4_10_0_rev0_Ubuntu22_04/myRM/mrRM_left_gripper_4_visual_vis_1.dae" />
+            </geometry>
+        </visual>
+    </link>
+    <joint name="left_gripper_5" type="continuous">
+        <axis xyz="0 0 1" />
+        <parent link="left_gripper_4_respondable" />
+        <child link="left_gripper_5_respondable" />
+        <origin xyz="0.038592 0.010314 0.000002" rpy="3.141593 3.141593 3.141593" />
+    </joint>
+    <link name="left_gripper_5_respondable">
+        <collision name="left_gripper_5_respondable">
+            <origin xyz="0.017990 -0.008090 -0.000939" rpy="-1.674553 4.617997 -1.462757" />
+            <geometry>
+                <mesh filename="file:///CoppeliaSim_Edu_V4_10_0_rev0_Ubuntu22_04/myRM/mrRM_left_gripper_5_respondable_coll_1.dae" />
+            </geometry>
+        </collision>
+        <visual name="left_gripper_5_visual">
+            <origin xyz="0.017573 -0.011847 0.000239" rpy="-0.006831 4.688097 2.731857" />
+            <geometry>
+                <mesh filename="file:///CoppeliaSim_Edu_V4_10_0_rev0_Ubuntu22_04/myRM/mrRM_left_gripper_5_visual_vis_1.dae" />
+            </geometry>
+        </visual>
+    </link>
+    <joint name="left_gripper_6" type="continuous">
+        <axis xyz="0 0 1" />
+        <parent link="left_gripper_5_respondable" />
+        <child link="left_gripper_6_respondable" />
+        <origin xyz="0.005114 -0.014085 0.000000" rpy="-3.141593 3.141593 3.141593" />
+    </joint>
+    <link name="left_gripper_6_respondable">
+        <collision name="left_gripper_6_respondable">
+            <origin xyz="-0.007535 -0.008443 -0.000055" rpy="1.570594 3.141595 -0.719247" />
+            <geometry>
+                <mesh filename="file:///CoppeliaSim_Edu_V4_10_0_rev0_Ubuntu22_04/myRM/mrRM_left_gripper_6_respondable_coll_1.dae" />
+            </geometry>
+        </collision>
+        <visual name="left_gripper_6_visual">
+            <origin xyz="-0.007374 -0.008477 0.000002" rpy="-1.570789 3.154903 -0.722334" />
+            <geometry>
+                <mesh filename="file:///CoppeliaSim_Edu_V4_10_0_rev0_Ubuntu22_04/myRM/mrRM_left_gripper_6_visual_vis_1.dae" />
+            </geometry>
+        </visual>
+    </link>
+    <joint name="left_gripper_7" type="continuous">
+        <axis xyz="0 0 1" />
+        <parent link="left_gripper_6_respondable" />
+        <child link="left_gripper_7_respondable" />
+        <origin xyz="-0.014882 -0.016851 0.000000" rpy="3.141593 3.141593 3.141593" />
+    </joint>
+    <link name="left_gripper_7_respondable">
+        <collision name="left_gripper_7_respondable">
+            <origin xyz="-0.008705 -0.009626 -0.000056" rpy="1.570815 3.141601 -0.725416" />
+            <geometry>
+                <mesh filename="file:///CoppeliaSim_Edu_V4_10_0_rev0_Ubuntu22_04/myRM/mrRM_left_gripper_7_respondable_coll_1.dae" />
+            </geometry>
+        </collision>
+        <visual name="left_gripper_7_visual">
+            <origin xyz="-0.007057 -0.007665 -0.000012" rpy="-1.572790 3.148865 -0.724774" />
+            <geometry>
+                <mesh filename="file:///CoppeliaSim_Edu_V4_10_0_rev0_Ubuntu22_04/myRM/mrRM_left_gripper_7_visual_vis_1.dae" />
+            </geometry>
+        </visual>
+    </link>
+    <joint name="right_gripper_1" type="continuous">
+        <axis xyz="0 0 1" />
+        <parent link="Cuboid0" />
+        <child link="right_gripper_1_visual" />
+        <origin xyz="0.011580 -0.020865 0.040763" rpy="-0.000000 1.570796 0.000000" />
+    </joint>
+    <link name="right_gripper_1_visual">
+        <visual name="right_gripper_1_visual">
+            <origin xyz="0.010940 -0.006261 0.000030" rpy="-1.567358 3.230098 -2.105213" />
+            <geometry>
+                <mesh filename="file:///CoppeliaSim_Edu_V4_10_0_rev0_Ubuntu22_04/myRM/mrRM_right_gripper_1_visual_vis_1.dae" />
+            </geometry>
+        </visual>
+    </link>
+    <joint name="right_gripper_2" type="continuous">
+        <axis xyz="0 0 1" />
+        <parent link="right_gripper_1_visual" />
+        <child link="right_gripper_2_respondable" />
+        <origin xyz="0.021349 -0.013036 0.000000" rpy="3.141593 3.141593 -3.141593" />
+    </joint>
+    <link name="right_gripper_2_respondable">
+        <collision name="right_gripper_2_respondable">
+            <origin xyz="0.008719 -0.009971 0.000092" rpy="-1.413967 -1.570796 0.000000" />
+            <geometry>
+                <mesh filename="file:///CoppeliaSim_Edu_V4_10_0_rev0_Ubuntu22_04/myRM/mrRM_right_gripper_2_respondable_coll_1.dae" />
+            </geometry>
+        </collision>
+        <visual name="right_gripper_2_visual">
+            <origin xyz="0.003722 -0.006814 0.000278" rpy="-1.953820 -1.570796 0.000000" />
+            <geometry>
+                <mesh filename="file:///CoppeliaSim_Edu_V4_10_0_rev0_Ubuntu22_04/myRM/mrRM_right_gripper_2_visual_vis_1.dae" />
+            </geometry>
+        </visual>
+    </link>
+    <joint name="right_gripper_4" type="continuous">
+        <axis xyz="0 0 1" />
+        <parent link="right_gripper_2_respondable" />
+        <child link="right_gripper_4_respondable" />
+        <origin xyz="0.004715 -0.020848 -0.000006" rpy="-3.141593 3.141593 3.141593" />
+    </joint>
+    <link name="right_gripper_4_respondable">
+        <collision name="right_gripper_4_respondable">
+            <origin xyz="0.020388 -0.001817 0.000098" rpy="2.889531 -1.570796 0.000000" />
+            <geometry>
+                <mesh filename="file:///CoppeliaSim_Edu_V4_10_0_rev0_Ubuntu22_04/myRM/mrRM_right_gripper_4_respondable_coll_1.dae" />
+            </geometry>
+        </collision>
+        <visual name="right_gripper_4_visual">
+            <origin xyz="0.020096 -0.002753 -0.000003" rpy="-1.648514 4.709774 -1.812652" />
+            <geometry>
+                <mesh filename="file:///CoppeliaSim_Edu_V4_10_0_rev0_Ubuntu22_04/myRM/mrRM_right_gripper_4_visual_vis_1.dae" />
+            </geometry>
+        </visual>
+    </link>
+    <joint name="right_gripper_5" type="continuous">
+        <axis xyz="0 0 1" />
+        <parent link="right_gripper_4_respondable" />
+        <child link="right_gripper_5_respondable" />
+        <origin xyz="0.038592 -0.010314 0.000002" rpy="3.141593 3.141593 3.141593" />
+    </joint>
+    <link name="right_gripper_5_respondable">
+        <collision name="right_gripper_5_respondable">
+            <origin xyz="0.017968 0.008301 -0.001428" rpy="-1.539752 4.577196 1.535465" />
+            <geometry>
+                <mesh filename="file:///CoppeliaSim_Edu_V4_10_0_rev0_Ubuntu22_04/myRM/mrRM_right_gripper_5_respondable_coll_1.dae" />
+            </geometry>
+        </collision>
+        <visual name="right_gripper_5_visual">
+            <origin xyz="0.017573 0.011847 0.000239" rpy="0.006348 4.688104 -2.731380" />
+            <geometry>
+                <mesh filename="file:///CoppeliaSim_Edu_V4_10_0_rev0_Ubuntu22_04/myRM/mrRM_right_gripper_5_visual_vis_1.dae" />
+            </geometry>
+        </visual>
+    </link>
+    <joint name="right_gripper_6" type="continuous">
+        <axis xyz="0 0 1" />
+        <parent link="right_gripper_5_respondable" />
+        <child link="right_gripper_6_respondable" />
+        <origin xyz="0.005928 0.013307 -0.000000" rpy="-3.141593 3.141593 -3.141593" />
+    </joint>
+    <link name="right_gripper_6_respondable">
+        <collision name="right_gripper_6_respondable">
+            <origin xyz="-0.008213 0.009072 -0.000056" rpy="1.570997 3.141594 -2.422346" />
+            <geometry>
+                <mesh filename="file:///CoppeliaSim_Edu_V4_10_0_rev0_Ubuntu22_04/myRM/mrRM_right_gripper_6_respondable_coll_1.dae" />
+            </geometry>
+        </collision>
+        <visual name="right_gripper_7_visual">
+            <origin xyz="-0.008240 0.009208 -0.000001" rpy="1.570866 3.160528 -2.418752" />
+            <geometry>
+                <mesh filename="file:///CoppeliaSim_Edu_V4_10_0_rev0_Ubuntu22_04/myRM/mrRM_right_gripper_7_visual_vis_1.dae" />
+            </geometry>
+        </visual>
+    </link>
+    <joint name="right_gripper_7" type="continuous">
+        <axis xyz="0 0 1" />
+        <parent link="right_gripper_6_respondable" />
+        <child link="right_gripper_7_respondable" />
+        <origin xyz="-0.015696 0.017630 -0.000000" rpy="-3.141593 3.141593 3.141593" />
+    </joint>
+    <link name="right_gripper_7_respondable">
+        <collision name="right_gripper_7_respondable">
+            <origin xyz="-0.008798 0.009703 -0.000056" rpy="1.570778 3.141601 -2.416178" />
+            <geometry>
+                <mesh filename="file:///CoppeliaSim_Edu_V4_10_0_rev0_Ubuntu22_04/myRM/mrRM_right_gripper_7_respondable_coll_1.dae" />
+            </geometry>
+        </collision>
+        <visual name="right_gripper_6_visual">
+            <origin xyz="-0.006985 0.007728 -0.000017" rpy="1.569059 3.156467 -2.423822" />
+            <geometry>
+                <mesh filename="file:///CoppeliaSim_Edu_V4_10_0_rev0_Ubuntu22_04/myRM/mrRM_right_gripper_6_visual_vis_1.dae" />
+            </geometry>
+        </visual>
+    </link>
+    <joint name="camera_attach" type="fixed">
+        <axis xyz="0 0 1" />
+        <parent link="arm_2_link_respondable" />
+        <child link="camera_link_visual" />
+        <origin xyz="0.004019 -0.034011 -0.020260" rpy="-1.570796 3.141593 -3.001966" />
+    </joint>
+    <link name="camera_link_visual">
+        <visual name="camera_link_visual">
+            <origin xyz="-0.000648 0.000667 0.013564" rpy="1.570796 3.124139 0.000000" />
+            <geometry>
+                <mesh filename="file:///CoppeliaSim_Edu_V4_10_0_rev0_Ubuntu22_04/myRM/mrRM_camera_link_visual_vis_1.dae" />
+            </geometry>
+        </visual>
+    </link>
+    <joint name="triangle_link" type="continuous">
+        <axis xyz="0 0 1" />
+        <parent link="arm_1_link_respondable" />
+        <child link="triangle_link_respondable" />
+        <origin xyz="0.002022 -0.121233 -0.007103" rpy="-3.141592 3.141593 -2.891312" />
+    </joint>
+    <link name="triangle_link_respondable">
+        <inertial>
+            <origin rpy="-1.954402 1.571449 1.570213" xyz="-0.014028 -0.018759 0.000005" />
+            <inertia ixx="0.00018455399337178" izz="9.0000000400469e-06" iyz="-3.9305026608461e-13" iyy="1.8000000080094e-05" ixz="-3.1184653673886e-19" ixy="-1.3619040410819e-26" />
+            <mass value="0.0089999996125698" />
+        </inertial>
+        <collision name="triangle_link_respondable">
+            <origin xyz="-0.014028 -0.018759 0.000005" rpy="-1.954402 1.571449 1.570213" />
+            <geometry>
+                <mesh filename="file:///CoppeliaSim_Edu_V4_10_0_rev0_Ubuntu22_04/myRM/mrRM_triangle_link_respondable_coll_1.dae" />
+            </geometry>
+        </collision>
+        <visual name="triangle_link_visual">
+            <origin xyz="-0.014063 -0.018900 0.000005" rpy="-1.953610 1.571449 1.570500" />
+            <geometry>
+                <mesh filename="file:///CoppeliaSim_Edu_V4_10_0_rev0_Ubuntu22_04/myRM/mrRM_triangle_link_visual_vis_1.dae" />
+            </geometry>
+        </visual>
+    </link>
+    <joint name="rod_2_link" type="continuous">
+        <axis xyz="0 0 1" />
+        <parent link="arm_base_link_respondable" />
+        <child link="rod_2_link_respondable" />
+        <origin xyz="-0.055478 -0.029070 -0.022428" rpy="-1.570813 4.702964 0.000017" />
+    </joint>
+    <link name="rod_2_link_respondable">
+        <inertial>
+            <origin rpy="3.028820 1.570851 1.491040" xyz="0.001153 -0.054912 -0.000000" />
+            <inertia ixx="0.0015792051600772" izz="3.8615595997555e-05" iyz="5.2056369047519e-05" iyy="0.0016129776245182" ixz="3.3794722810814e-05" ixy="-1.1163626210664e-06" />
+            <mass value="0.012000000104308" />
+        </inertial>
+        <collision name="rod_2_link_respondable">
+            <origin xyz="-0.000690 -0.059576 -0.000000" rpy="3.028820 1.570851 1.491040" />
+            <geometry>
+                <mesh filename="file:///CoppeliaSim_Edu_V4_10_0_rev0_Ubuntu22_04/myRM/mrRM_rod_2_link_respondable_coll_1.dae" />
+            </geometry>
+        </collision>
+        <visual name="rod_2_link_visual">
+            <origin xyz="-0.000702 -0.059522 0.000000" rpy="3.104893 1.570853 1.566134" />
+            <geometry>
+                <mesh filename="file:///CoppeliaSim_Edu_V4_10_0_rev0_Ubuntu22_04/myRM/mrRM_rod_2_link_visual_vis_1.dae" />
+            </geometry>
+        </visual>
+    </link>
+    <joint name="servo_motor_0" type="revolute">
+        <axis xyz="0 0 1" />
+        <limit velocity="5.1312680244446" lower="-0.79936075210571" effort="10.0" upper="5.4838247299194" />
+        <parent link="arm_base_link_respondable" />
+        <child link="rod_link_respondable" />
+        <origin xyz="-0.031923 0.021424 0.009805" rpy="-1.570797 -1.570796 0.000000" />
+    </joint>
+    <link name="rod_link_respondable">
+        <inertial>
+            <origin rpy="-2.649286 -1.570796 0.000000" xyz="-0.000081 -0.000086 0.002379" />
+            <inertia ixx="0.00020289999408998" izz="0.00086635430723312" iyz="8.1931339617662e-05" iyy="0.00075754317529392" ixz="-0.00016216980880584" ixy="0.0003023547012067" />
+            <mass value="0.010999999940395" />
+        </inertial>
+        <collision name="rod_link_respondable">
+            <origin xyz="-0.020399 -0.011337 0.002379" rpy="-2.649286 -1.570796 0.000000" />
+            <geometry>
+                <mesh filename="file:///CoppeliaSim_Edu_V4_10_0_rev0_Ubuntu22_04/myRM/mrRM_rod_link_respondable_coll_1.dae" />
+            </geometry>
+        </collision>
+        <visual name="rod_link_visual">
+            <origin xyz="-0.020597 -0.011197 0.001658" rpy="-1.092504 4.712387 1.610207" />
+            <geometry>
+                <mesh filename="file:///CoppeliaSim_Edu_V4_10_0_rev0_Ubuntu22_04/myRM/mrRM_rod_link_visual_vis_1.dae" />
+            </geometry>
+        </visual>
+    </link>
+    <joint name="rod_3_link" type="revolute">
+        <axis xyz="0 0 1" />
+        <limit velocity="3.1415927410126" lower="-0.34732049703598" effort="1000.0" upper="1.2147491574287" />
+        <parent link="rod_link_respondable" />
+        <child link="rod_3_link_respondable" />
+        <origin xyz="-0.042397 -0.022313 0.000453" rpy="-3.141593 3.141593 3.141593" />
+    </joint>
+    <link name="rod_3_link_respondable">
+        <inertial>
+            <origin rpy="3.107216 1.570851 1.559078" xyz="-0.000357 -0.000168 0.000010" />
+            <inertia ixx="0.0058869943594265" izz="3.7523029161263e-05" iyz="0.00013330729820632" iyy="0.0059170696757544" ixz="-1.9013833819694e-05" ixy="4.3079325159261e-07" />
+            <mass value="0.012000000104308" />
+        </inertial>
+        <collision name="rod_3_link_respondable">
+            <origin xyz="-0.001156 -0.060516 0.000009" rpy="3.107216 1.570851 1.559078" />
+            <geometry>
+                <mesh filename="file:///CoppeliaSim_Edu_V4_10_0_rev0_Ubuntu22_04/myRM/mrRM_rod_3_link_respondable_coll_1.dae" />
+            </geometry>
+        </collision>
+        <visual name="rod_3_link_visual">
+            <origin xyz="-0.001198 -0.060431 -0.000001" rpy="3.115884 1.570852 1.564259" />
+            <geometry>
+                <mesh filename="file:///CoppeliaSim_Edu_V4_10_0_rev0_Ubuntu22_04/myRM/mrRM_rod_3_link_visual_vis_1.dae" />
+            </geometry>
+        </visual>
+    </link>
+    <joint name="intelligent_controller_joint" type="fixed">
+        <axis xyz="0 0 1" />
+        <parent link="robot_base" />
+        <child link="intelligent_controller_link_respondable" />
+        <origin xyz="-0.132905 0.002221 0.171416" rpy="-0.004234 1.585757 -0.003830" />
+    </joint>
+    <link name="intelligent_controller_link_respondable">
+        <inertial>
+            <origin rpy="0.000000 -1.570796 0.000000" xyz="-0.000000 0.000000 0.000000" />
+            <inertia ixx="0.0010000007156864" izz="0.0010000007156864" iyz="-1.8605488208292e-27" iyy="0.0010000007156864" ixz="-2.0247384601913e-27" ixy="1.1023513752748e-29" />
+            <mass value="0.093000002205372" />
+        </inertial>
+        <collision name="intelligent_controller_link_respondable">
+            <origin xyz="0.011384 -0.000020 0.023166" rpy="0.000000 -1.570796 0.000000" />
+            <geometry>
+                <box size="0.108973 0.059103 0.022915" />
+            </geometry>
+        </collision>
+        <visual name="intelligent_controller_link_visual">
+            <origin xyz="-0.023643 -0.034315 -0.014756" rpy="-1.568813 3.141593 1.570740" />
+            <geometry>
+                <mesh filename="file:///CoppeliaSim_Edu_V4_10_0_rev0_Ubuntu22_04/myRM/mrRM_intelligent_controller_link_visual_vis_1.dae" />
+            </geometry>
+        </visual>
+        <visual name="intelligent_controller_link_visual">
+            <origin xyz="-0.023643 -0.034315 -0.014756" rpy="-1.568813 3.141593 1.570740" />
+            <geometry>
+                <mesh filename="file:///CoppeliaSim_Edu_V4_10_0_rev0_Ubuntu22_04/myRM/mrRM_intelligent_controller_link_visual_vis_2.dae" />
+            </geometry>
+        </visual>
+        <visual name="intelligent_controller_link_visual">
+            <origin xyz="-0.023643 -0.034315 -0.014756" rpy="-1.568813 3.141593 1.570740" />
+            <geometry>
+                <mesh filename="file:///CoppeliaSim_Edu_V4_10_0_rev0_Ubuntu22_04/myRM/mrRM_intelligent_controller_link_visual_vis_3.dae" />
+            </geometry>
+        </visual>
+    </link>
+    <joint name="extension_base_joint" type="fixed">
+        <axis xyz="0 0 1" />
+        <parent link="robot_base" />
+        <child link="extension_base_link_respondable" />
+        <origin xyz="-0.008214 0.000838 0.107186" rpy="-0.004234 1.585757 -0.003830" />
+    </joint>
+    <link name="extension_base_link_respondable">
+        <inertial>
+            <origin rpy="-0.000000 3.141593 0.000000" xyz="-0.004310 -0.000011 0.004419" />
+            <inertia ixx="0.0022399987531521" izz="0.0013300013470108" iyz="-5.9663003559816e-14" iyy="0.00091999895372175" ixz="-2.0007677998689e-19" ixy="-1.9554282664526e-11" />
+            <mass value="0.21999999880791" />
+        </inertial>
+        <collision name="extension_base_link_respondable">
+            <origin xyz="-0.004310 -0.000011 0.004419" rpy="0.000000 -1.570796 0.000000" />
+            <geometry>
+                <box size="0.279694 0.231779 0.013000" />
+            </geometry>
+        </collision>
+        <collision name="extension_base_link_respondable">
+            <origin xyz="-0.039066 0.000021 -0.100668" rpy="0.000000 -1.570796 0.000000" />
+            <geometry>
+                <box size="0.104444 0.045000 0.002000" />
+            </geometry>
+        </collision>
+        <visual name="extension_base_link_visual">
+            <origin xyz="-0.015825 0.000021 -0.100668" rpy="-1.570798 3.141565 0.000000" />
+            <geometry>
+                <mesh filename="file:///CoppeliaSim_Edu_V4_10_0_rev0_Ubuntu22_04/myRM/mrRM_extension_base_link_visual_vis_1.dae" />
+            </geometry>
+        </visual>
+        <visual name="extension_base_link_visual">
+            <origin xyz="-0.015825 0.000021 -0.100668" rpy="-1.570798 3.141565 0.000000" />
+            <geometry>
+                <mesh filename="file:///CoppeliaSim_Edu_V4_10_0_rev0_Ubuntu22_04/myRM/mrRM_extension_base_link_visual_vis_2.dae" />
+            </geometry>
+        </visual>
+    </link>
+    <joint name="front_left_wheel_joint" type="continuous">
+        <axis xyz="0 0 1" />
+        <parent link="robot_base" />
+        <child link="front_left_wheel_link_respondable" />
+        <origin xyz="0.100103 0.099836 0.050372" rpy="1.570859 3.126631 -3.141188" />
+    </joint>
+    <link name="front_left_wheel_link_respondable">
+        <inertial>
+            <origin rpy="-1.570796 3.141593 3.141592" xyz="-0.000210 0.000415 0.000053" />
+            <inertia ixx="0.00019999955699974" izz="0.00012000005669357" iyz="-8.7074804302154e-23" iyy="0.00012000005669357" ixz="-5.9837115865974e-13" ixy="1.1641466120195e-14" />
+            <mass value="0.16200000047684" />
+        </inertial>
+        <collision name="front_left_wheel_link_respondable">
+            <origin xyz="0.000000 -0.000000 -0.000000" rpy="-1.570796 3.141593 3.141592" />
+            <geometry>
+                <sphere radius="0.025000000372529" />
+            </geometry>
+        </collision>
+        <visual name="front_left_wheel_link_visual">
+            <origin xyz="-0.000306 0.000697 0.000255" rpy="-1.901378 1.571450 1.571464" />
+            <geometry>
+                <mesh filename="file:///CoppeliaSim_Edu_V4_10_0_rev0_Ubuntu22_04/myRM/mrRM_front_left_wheel_link_visual_vis_1.dae" />
+            </geometry>
+        </visual>
+        <visual name="front_left_wheel_link_visual">
+            <origin xyz="-0.000306 0.000697 0.000255" rpy="-1.901378 1.571450 1.571464" />
+            <geometry>
+                <mesh filename="file:///CoppeliaSim_Edu_V4_10_0_rev0_Ubuntu22_04/myRM/mrRM_front_left_wheel_link_visual_vis_2.dae" />
+            </geometry>
+        </visual>
+    </link>
+    <joint name="front_left_wheel_inner_joint" type="continuous">
+        <axis xyz="0 0 1" />
+        <parent link="front_left_wheel_link_respondable" />
+        <child link="front_left_wheel_inner_link_respondable" />
+        <origin xyz="0.000000 -0.000000 -0.000000" rpy="-2.526113 3.665191 2.186276" />
+    </joint>
+    <link name="front_left_wheel_inner_link_respondable">
+        <inertial>
+            <origin rpy="-1.570796 2.356195 -2.356195" xyz="-0.000442 0.000144 0.000053" />
+            <inertia ixx="1.0000000251457e-05" izz="1.0000000251457e-05" iyz="1.6871276897786e-29" iyy="1.0000000251457e-05" ixz="-7.9522146391448e-30" ixy="1.8305675243518e-31" />
+            <mass value="0.0099999997764826" />
+        </inertial>
+        <collision name="front_left_wheel_inner_link_respondable">
+            <origin xyz="-0.000442 0.000144 0.000053" rpy="-1.570796 2.356195 -2.356195" />
+            <geometry>
+                <sphere radius="0.050000000745058" />
+            </geometry>
+        </collision>
+    </link>
+    <joint name="front_right_wheel_joint" type="continuous">
+        <axis xyz="0 0 1" />
+        <parent link="robot_base" />
+        <child link="front_right_wheel_link_respondable" />
+        <origin xyz="0.100184 -0.100164 0.050359" rpy="1.570859 3.126631 -3.141188" />
+    </joint>
+    <link name="front_right_wheel_link_respondable">
+        <inertial>
+            <origin rpy="-1.570796 3.141593 3.141592" xyz="0.000224 0.000097 -0.000135" />
+            <inertia ixx="0.00019999955699974" izz="0.00012000005669357" iyz="-8.7074804302154e-23" iyy="0.00012000005669357" ixz="-5.9837115865974e-13" ixy="1.1641466120195e-14" />
+            <mass value="0.16200000047684" />
+        </inertial>
+        <collision name="front_right_wheel_link_respondable">
+            <origin xyz="-0.000000 -0.000000 -0.000000" rpy="-1.570796 3.141593 3.141592" />
+            <geometry>
+                <sphere radius="0.025000000372529" />
+            </geometry>
+        </collision>
+        <visual name="front_right_wheel_link_visual">
+            <origin xyz="0.000012 0.000321 -0.000121" rpy="-2.393653 1.572339 2.543479" />
+            <geometry>
+                <mesh filename="file:///CoppeliaSim_Edu_V4_10_0_rev0_Ubuntu22_04/myRM/mrRM_front_right_wheel_link_visual_vis_1.dae" />
+            </geometry>
+        </visual>
+        <visual name="front_right_wheel_link_visual">
+            <origin xyz="0.000012 0.000321 -0.000121" rpy="-2.393653 1.572339 2.543479" />
+            <geometry>
+                <mesh filename="file:///CoppeliaSim_Edu_V4_10_0_rev0_Ubuntu22_04/myRM/mrRM_front_right_wheel_link_visual_vis_2.dae" />
+            </geometry>
+        </visual>
+    </link>
+    <joint name="front_right_wheel_inner_joint" type="continuous">
+        <axis xyz="0 0 1" />
+        <parent link="front_right_wheel_link_respondable" />
+        <child link="front_right_wheel_inner_link_respondable" />
+        <origin xyz="-0.000000 -0.000000 -0.000000" rpy="-0.615480 2.617994 2.186276" />
+    </joint>
+    <link name="front_right_wheel_inner_link_respondable">
+        <inertial>
+            <origin rpy="1.570796 2.356194 2.356194" xyz="0.000248 -0.000111 0.000063" />
+            <inertia ixx="1.0000000251457e-05" izz="1.0000000251457e-05" iyz="1.6871276897786e-29" iyy="1.0000000251457e-05" ixz="-7.9522146391448e-30" ixy="1.8305675243518e-31" />
+            <mass value="0.0099999997764826" />
+        </inertial>
+        <collision name="front_right_wheel_inner_link_respondable">
+            <origin xyz="0.000248 -0.000111 0.000063" rpy="1.570796 2.356194 2.356194" />
+            <geometry>
+                <sphere radius="0.050000000745058" />
+            </geometry>
+        </collision>
+    </link>
+    <joint name="rear_left_wheel_joint" type="continuous">
+        <axis xyz="0 0 1" />
+        <parent link="robot_base" />
+        <child link="rear_left_wheel_link_respondable" />
+        <origin xyz="-0.099875 0.099755 0.053364" rpy="1.570859 3.126631 -3.141188" />
+    </joint>
+    <link name="rear_left_wheel_link_respondable">
+        <inertial>
+            <origin rpy="-1.570796 3.141593 3.141592" xyz="-0.000257 -0.000323 -0.000094" />
+            <inertia ixx="0.00019999955699974" izz="0.00012000005669357" iyz="-8.7074804302154e-23" iyy="0.00012000005669357" ixz="-5.9837115865974e-13" ixy="1.1641466120195e-14" />
+            <mass value="0.16200000047684" />
+        </inertial>
+        <collision name="rear_left_wheel_link_respondable">
+            <origin xyz="-0.000000 -0.000000 0.000000" rpy="-1.570796 3.141593 3.141592" />
+            <geometry>
+                <sphere radius="0.025000000372529" />
+            </geometry>
+        </collision>
+        <visual name="rear_left_wheel_link_visual">
+            <origin xyz="-0.000082 0.000117 -0.000095" rpy="-3.101595 1.571451 1.570580" />
+            <geometry>
+                <mesh filename="file:///CoppeliaSim_Edu_V4_10_0_rev0_Ubuntu22_04/myRM/mrRM_rear_left_wheel_link_visual_vis_1.dae" />
+            </geometry>
+        </visual>
+        <visual name="rear_left_wheel_link_visual">
+            <origin xyz="-0.000082 0.000117 -0.000095" rpy="-3.101595 1.571451 1.570580" />
+            <geometry>
+                <mesh filename="file:///CoppeliaSim_Edu_V4_10_0_rev0_Ubuntu22_04/myRM/mrRM_rear_left_wheel_link_visual_vis_2.dae" />
+            </geometry>
+        </visual>
+    </link>
+    <joint name="rear_left_wheel_inner_joint" type="continuous">
+        <axis xyz="0 0 1" />
+        <parent link="rear_left_wheel_link_respondable" />
+        <child link="rear_left_wheel_inner_link_respondable" />
+        <origin xyz="-0.000000 -0.000000 0.000000" rpy="-2.526112 2.617994 -2.186276" />
+    </joint>
+    <link name="rear_left_wheel_inner_link_respondable">
+        <inertial>
+            <origin rpy="-1.570796 3.926991 2.356194" xyz="-0.000310 -0.000147 -0.000248" />
+            <inertia ixx="1.0000000251457e-05" izz="1.0000000251457e-05" iyz="1.6871276897786e-29" iyy="1.0000000251457e-05" ixz="-7.9522146391448e-30" ixy="1.8305675243518e-31" />
+            <mass value="0.0099999997764826" />
+        </inertial>
+        <collision name="rear_left_wheel_inner_link_respondable">
+            <origin xyz="-0.000310 -0.000147 -0.000248" rpy="-1.570796 3.926991 2.356194" />
+            <geometry>
+                <sphere radius="0.050000000745058" />
+            </geometry>
+        </collision>
+    </link>
+    <joint name="rear_right_wheel_joint" type="continuous">
+        <axis xyz="0 0 1" />
+        <parent link="robot_base" />
+        <child link="rear_right_wheel_link_respondable" />
+        <origin xyz="-0.099794 -0.100245 0.053351" rpy="1.570859 3.126631 -3.141188" />
+    </joint>
+    <link name="rear_right_wheel_link_respondable">
+        <inertial>
+            <origin rpy="-1.570796 3.141593 3.141592" xyz="-0.000131 -0.000202 0.000195" />
+            <inertia ixx="0.00019999955699974" izz="0.00012000005669357" iyz="-8.7074804302154e-23" iyy="0.00012000005669357" ixz="-5.9837115865974e-13" ixy="1.1641466120195e-14" />
+            <mass value="0.16200000047684" />
+        </inertial>
+        <collision name="rear_right_wheel_link_respondable">
+            <origin xyz="0.000000 0.000000 -0.000000" rpy="-1.570796 3.141593 3.141592" />
+            <geometry>
+                <sphere radius="0.025000000372529" />
+            </geometry>
+        </collision>
+        <visual name="rear_right_wheel_link_visual">
+            <origin xyz="-0.000041 0.000066 0.000195" rpy="-1.828957 1.571452 1.574518" />
+            <geometry>
+                <mesh filename="file:///CoppeliaSim_Edu_V4_10_0_rev0_Ubuntu22_04/myRM/mrRM_rear_right_wheel_link_visual_vis_1.dae" />
+            </geometry>
+        </visual>
+        <visual name="rear_right_wheel_link_visual">
+            <origin xyz="-0.000041 0.000066 0.000195" rpy="-1.828957 1.571452 1.574518" />
+            <geometry>
+                <mesh filename="file:///CoppeliaSim_Edu_V4_10_0_rev0_Ubuntu22_04/myRM/mrRM_rear_right_wheel_link_visual_vis_2.dae" />
+            </geometry>
+        </visual>
+    </link>
+    <joint name="rear_right_wheel_inner_joint" type="continuous">
+        <axis xyz="0 0 1" />
+        <parent link="rear_right_wheel_link_respondable" />
+        <child link="rear_right_wheel_inner_link_respondable" />
+        <origin xyz="0.000000 0.000000 -0.000000" rpy="-0.615479 3.665192 -2.186276" />
+    </joint>
+    <link name="rear_right_wheel_inner_link_respondable">
+        <inertial>
+            <origin rpy="1.570796 3.926991 -2.356194" xyz="0.000050 -0.000236 0.000195" />
+            <inertia ixx="1.0000000251457e-05" izz="1.0000000251457e-05" iyz="1.6871276897786e-29" iyy="1.0000000251457e-05" ixz="-7.9522146391448e-30" ixy="1.8305675243518e-31" />
+            <mass value="0.0099999997764826" />
+        </inertial>
+        <collision name="rear_right_wheel_inner_link_respondable">
+            <origin xyz="0.000050 -0.000236 0.000195" rpy="1.570796 3.926991 -2.356194" />
+            <geometry>
+                <sphere radius="0.050000000745058" />
+            </geometry>
+        </collision>
+    </link>
+</robot>

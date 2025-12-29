@@ -1,0 +1,6 @@
+<mujoco>
+  <body name="left_sensors" pos="0 0 0">
+    <geom name="left_hit_sensor" type="mesh" mesh="left_hit_sensor_mesh" material="mat_sensor" pos="-0.002040 0.085820 0.066425" quat="0.49634779 -0.50382657 0.50362603 -0.49614362" mass="0.05"/>
+    <geom name="left_led" type="mesh" mesh="left_led_mesh" material="mat_led" pos="-0.003518 0.096630 0.066595" quat="0.48869136 -0.51145906 0.49469102 -0.50484768" mass="0.02"/>
+  </body>
+</mujoco>

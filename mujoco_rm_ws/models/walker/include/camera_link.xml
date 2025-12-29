@@ -1,0 +1,7 @@
+<mujoco>
+  <body name="camera_link" pos="0.004019 -0.034011 -0.020260" quat="0.70538417 0.70538442 0.04932527 0.04932550">
+    <geom name="camera_link_visual" type="mesh" mesh="camera_link_mesh" material="mat_sensor" mass="0.01" contype="0" conaffinity="0"/>
+    <!-- Rotate so the camera looks forward (+X) and keep image upright. -->
+    <camera name="arm_camera" pos="0 0 0" quat="0.5 0.5 -0.5 -0.5" fovy="60"/>
+  </body>
+</mujoco>

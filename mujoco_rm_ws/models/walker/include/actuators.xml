@@ -1,0 +1,23 @@
+<mujoco>
+  <!-- Servo motors on the arm joints -->
+  <!-- Realistic-but-responsive limits (units: N*m). Avoid huge torques that can destabilize the base. -->
+  <position name="servo_motor_0_act" joint="servo_motor_0" kp="40" kv="12"
+            ctrlrange="-0.79936075210571 5.4838247299194" forcerange="-6.0 6.0"/>
+  <position name="servo_motor_1_act" joint="servo_motor_1" kp="40" kv="16"
+            ctrlrange="-3.557201307179586 3.009169307179586" forcerange="-8.0 8.0"/>
+
+  <!-- Gripper -->
+  <position name="gripper_pos" joint="gripper_hinge_left" kp="400" kv="30"
+            ctrlrange="-1.0 1.5" ctrllimited="true" forcerange="-400 400"/>
+
+  <!-- Mobile base commands (read by load_env.py callback): vx [m/s], wz [rad/s] -->
+  <position name="base_vx" joint="base_vx_cmd_joint" kp="0" kv="0" ctrlrange="-2.5 2.8"/>
+  <position name="base_vy" joint="base_vy_cmd_joint" kp="0" kv="0" ctrlrange="-2.8 2.8"/>
+  <position name="base_wz" joint="base_wz_cmd_joint" kp="0" kv="0" ctrlrange="-10.472 10.472"/>
+
+  <!-- Wheel velocity servos driven by callback. -->
+  <velocity name="wheel_front_left_act" joint="wheel_front_left_spin" kv="20" ctrlrange="-105 105" forcerange="-0.25 0.25"/>
+  <velocity name="wheel_front_right_act" joint="wheel_front_right_spin" kv="20" ctrlrange="-105 105" forcerange="-0.25 0.25"/>
+  <velocity name="wheel_rear_left_act" joint="wheel_rear_left_spin" kv="20" ctrlrange="-105 105" forcerange="-0.25 0.25"/>
+  <velocity name="wheel_rear_right_act" joint="wheel_rear_right_spin" kv="20" ctrlrange="-105 105" forcerange="-0.25 0.25"/>
+</mujoco>

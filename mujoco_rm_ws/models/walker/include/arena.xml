@@ -1,0 +1,6 @@
+<mujoco>
+  <light name="sun" pos="0 0 5" dir="0 0 -1" diffuse="0.9 0.9 0.8" specular="0.1 0.1 0.1" castshadow="true"/>
+  <geom name="ground" type="plane" size="10 10 0.2" material="mat_ground" rgba="0.8 0.9 1 1" friction="0.35 0.1 0.001" solref="0.003 1" solimp="0.95 0.99 0.001" margin="0.003" contype="1" conaffinity="1"/>
+  <geom name="sky_dome" type="sphere" size="60" rgba="0.62 0.78 0.94 1" contype="0" conaffinity="0" group="1"/>
+  <site name="spawn" pos="0 0 1.0" size="0.02" rgba="0.6 1 0.6 0.5"/>
+</mujoco>

@@ -1,0 +1,9 @@
+<mujoco>
+  <body name="rod_2_link" pos="-0.055478 -0.029070 -0.022428" quat="-0.49763833 0.49763809 0.50235073 0.50235064">
+    <joint name="rod_2_joint" type="hinge" axis="0 0 1" limited="false" damping="0.05"/>
+    <geom name="rod_2_visual" type="mesh" mesh="rod_2_visual_mesh" material="mat_arm_link" pos="-0.000702 -0.059522 0" quat="0.50795871 0.4919124 0.50793097 -0.49194132" mass="0" contype="0" conaffinity="0"/>
+    <geom name="rod_2_collision" type="mesh" mesh="rod_2_collision_mesh" material="mat_collision" pos="-0.000690 -0.059576 0" quat="0.50819787 0.49166325 0.50817329 -0.49169308" contype="1" conaffinity="1" density="236.55" group="3"/>
+    <site name="rod2_triangle_anchor_a" pos="-0.00030872708 -0.12474678 0.0000037909" size="0.01" rgba="0.5 0.8 0.2 0.7"/>
+    <site name="rod2_triangle_anchor_b" pos="-0.00030469 -0.12474616 0.01000379" size="0.01" rgba="0.5 0.8 0.2 0.7"/>
+  </body>
+</mujoco>

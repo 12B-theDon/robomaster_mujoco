@@ -1,0 +1,4 @@
+Invoking command in '/mujoco_rm_ws/ros2/build/mujoco_rm_bringup': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /mujoco_rm_ws/ros2/build/mujoco_rm_bringup -- -j24 -l24
+Invoked command in '/mujoco_rm_ws/ros2/build/mujoco_rm_bringup' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /mujoco_rm_ws/ros2/build/mujoco_rm_bringup -- -j24 -l24
+Invoking command in '/mujoco_rm_ws/ros2/build/mujoco_rm_bringup': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --install /mujoco_rm_ws/ros2/build/mujoco_rm_bringup
+Invoked command in '/mujoco_rm_ws/ros2/build/mujoco_rm_bringup' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --install /mujoco_rm_ws/ros2/build/mujoco_rm_bringup

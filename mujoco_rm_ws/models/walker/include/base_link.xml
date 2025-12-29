@@ -1,0 +1,41 @@
+<mujoco>
+  <body name="base_link" pos="0 0 0" quat="1 0 0 0">
+    <geom name="base_link_geom_1" type="mesh" mesh="base_link_mesh_1" material="mat_base" mass="0.5" friction="1 0.1 0.01" contype="0" conaffinity="0" pos="0.002326 -0.002002 0.053802" quat="0.0000778 0.71895495 0.00011361 0.69505666"/>
+    <geom name="base_link_geom_2" type="mesh" mesh="base_link_mesh_2" material="mat_base" mass="0.5" friction="1 0.1 0.01" contype="0" conaffinity="0" pos="0.002326 -0.002002 0.053802" quat="0.0000778 0.71895495 0.00011361 0.69505666"/>
+    <geom name="base_link_geom_3" type="mesh" mesh="base_link_mesh_3" material="mat_base" mass="0.5" friction="1 0.1 0.01" contype="0" conaffinity="0" pos="0.002326 -0.002002 0.053802" quat="0.0000778 0.71895495 0.00011361 0.69505666"/>
+    <geom name="base_link_geom_4" type="mesh" mesh="base_link_mesh_4" material="mat_base" mass="0.5" friction="1 0.1 0.01" contype="0" conaffinity="0" pos="0.002326 -0.002002 0.053802" quat="0.0000778 0.71895495 0.00011361 0.69505666"/>
+    <geom name="base_link_geom_5" type="mesh" mesh="base_link_mesh_5" material="mat_base" mass="0.5" friction="1 0.1 0.01" contype="0" conaffinity="0" pos="0.002326 -0.002002 0.053802" quat="0.0000778 0.71895495 0.00011361 0.69505666"/>
+    <geom name="base_link_geom_6" type="mesh" mesh="base_link_mesh_6" material="mat_base" mass="0.5" friction="1 0.1 0.01" contype="0" conaffinity="0" pos="0.002326 -0.002002 0.053802" quat="0.0000778 0.71895495 0.00011361 0.69505666"/>
+    <geom name="base_link_geom_7" type="mesh" mesh="base_link_mesh_7" material="mat_base" mass="0.5" friction="1 0.1 0.01" contype="0" conaffinity="0" pos="0.002326 -0.002002 0.053802" quat="0.0000778 0.71895495 0.00011361 0.69505666"/>
+    <geom name="base_link_geom_8" type="mesh" mesh="base_link_mesh_8" material="mat_base" mass="0.5" friction="1 0.1 0.01" contype="0" conaffinity="0" pos="0.002326 -0.002002 0.053802" quat="0.0000778 0.71895495 0.00011361 0.69505666"/>
+    <geom name="base_link_geom_9" type="mesh" mesh="base_link_mesh_9" material="mat_base" mass="0.5" friction="1 0.1 0.01" contype="0" conaffinity="0" pos="0.002326 -0.002002 0.053802" quat="0.0000778 0.71895495 0.00011361 0.69505666"/>
+    <geom name="base_link_geom_10" type="mesh" mesh="base_link_mesh_10" material="mat_base" mass="0.5" friction="1 0.1 0.01" contype="0" conaffinity="0" pos="0.002326 -0.002002 0.053802" quat="0.0000778 0.71895495 0.00011361 0.69505666"/>
+    <geom name="base_link_geom_11" type="mesh" mesh="base_link_mesh_11" material="mat_base" mass="0.5" friction="1 0.1 0.01" contype="0" conaffinity="0" pos="0.002326 -0.002002 0.053802" quat="0.0000778 0.71895495 0.00011361 0.69505666"/>
+    <geom name="base_link_geom_12" type="mesh" mesh="base_link_mesh_12" material="mat_base" mass="0.5" friction="1 0.1 0.01" contype="0" conaffinity="0" pos="0.002326 -0.002002 0.053802" quat="0.0000778 0.71895495 0.00011361 0.69505666"/>
+    <geom name="base_link_geom_13" type="mesh" mesh="base_link_mesh_13" material="mat_base" mass="0.5" friction="1 0.1 0.01" contype="0" conaffinity="0" pos="0.002326 -0.002002 0.053802" quat="0.0000778 0.71895495 0.00011361 0.69505666"/>
+    <geom name="robot_base_collision" type="mesh" mesh="robot_base_collision_mesh" material="mat_collision" contype="0" conaffinity="0" group="3" pos="0 0 0.067444" quat="0.7071069 0 -0.7071067 0" density="200"/>
+    <geom name="base_chassis_collision" type="box" size="0.11 0.11 0.03" pos="0 0 0.10" friction="0.8 0.1 0.01" solref="0.003 1" solimp="0.95 0.99 0.001" margin="0.002" mass="0" contype="1" conaffinity="1" group="3"/>
+    <site name="base_link_top" pos="0 0 0.25" size="0.02" rgba="0.8 0.2 0.2 0.7"/>
+
+    <!-- Control-only dummy joints (read as commands by load_env.py). -->
+    <body name="base_cmd_dummy" pos="0 0 0">
+      <joint name="base_vx_cmd_joint" type="slide" axis="1 0 0" limited="true" range="-2.5 3.5"/>
+      <joint name="base_vy_cmd_joint" type="slide" axis="0 1 0" limited="true" range="-2.8 2.8"/>
+      <joint name="base_wz_cmd_joint" type="hinge" axis="0 0 1" limited="true" range="-10.472 10.472"/>
+      <geom name="base_cmd_dummy_geom" type="sphere" size="0.001" mass="1e-6" rgba="0 0 0 0" contype="0" conaffinity="0"/>
+    </body>
+
+    <include file="front_left_wheel.xml"/>
+    <include file="front_right_wheel.xml"/>
+    <include file="rear_left_wheel.xml"/>
+    <include file="rear_right_wheel.xml"/>
+    <include file="front_sensors.xml"/>
+    <include file="rear_sensors.xml"/>
+    <include file="left_sensors.xml"/>
+    <include file="right_sensors.xml"/>
+    <include file="accelerometer.xml"/>
+    <include file="extension.xml"/>
+    <include file="controller.xml"/>
+    <include file="arm_base_link.xml"/>
+  </body>
+</mujoco>

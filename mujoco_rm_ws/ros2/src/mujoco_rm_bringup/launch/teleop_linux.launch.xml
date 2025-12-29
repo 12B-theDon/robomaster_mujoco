@@ -1,0 +1,133 @@
+<launch>
+  <arg name="ns" default="mujoco_rm"/>
+  <arg name="start_joy_node" default="true"/>
+  <arg name="joy_index" default="0"/>
+  <arg name="model_path" default="/mujoco_rm_ws/models/walker/walker_soft_ball.xml"/>
+  <arg name="servo_config" default="$(find-pkg-share mujoco_rm_bringup)/config/servos.yaml"/>
+  <arg name="show_viewer" default="true"/>
+  <arg name="mujoco_gl" default="glfw"/>
+  <!-- Arm control mode:
+       - '' (default): legacy behavior using use_joint_servo_teleop/use_cmd_arm_teleop
+       - 'joint': direct joint angle setpoints (rad) for servo_motor_0/1 via /cmd_joint_states
+       - 'cmd_arm': RoboMaster-style /cmd_arm (x/z deltas) -->
+  <arg name="arm_teleop_mode" default=""/>
+  <arg name="use_joint_servo_teleop" default="true"/>
+  <arg name="use_cmd_arm_teleop" default="false"/>
+  <let name="use_joint_servo_teleop_effective"
+       value="$(eval '(\'$(var arm_teleop_mode)\' == \'joint\') or (\'$(var arm_teleop_mode)\' == \'\' and \'$(var use_joint_servo_teleop)\' in (\'true\', \'True\'))')"/>
+  <let name="use_cmd_arm_teleop_effective"
+       value="$(eval '(\'$(var arm_teleop_mode)\' == \'cmd_arm\') or (\'$(var arm_teleop_mode)\' == \'\' and \'$(var use_cmd_arm_teleop)\' in (\'true\', \'True\'))')"/>
+  <arg name="use_teleop_twist_joy" default="false"/>
+  <arg name="cmd_vel_topic" default="cmd_vel_joy"/>
+  <arg name="joy_topic" default="joy"/>
+  <arg name="cmd_joint_states_topic" default="cmd_joint_states"/>
+  <arg name="cmd_arm_topic" default="cmd_arm"/>
+  <arg name="cmd_arm_vel_topic" default="cmd_arm_vel"/>
+  <arg name="cmd_gripper_topic" default="cmd_gripper"/>
+  <arg name="base_axis_x" default="4"/>
+  <arg name="base_axis_y" default="0"/>
+  <arg name="base_axis_yaw" default="3"/>
+  <arg name="base_mode" default="scaled"/>
+  <!-- Match RoboMaster axis mapping but default to "forward stick -> forward vx" for this joystick -->
+  <arg name="base_scale_linear_x" default="1.25"/>
+  <arg name="base_scale_linear_x_turbo" default="0.4"/>
+  <arg name="base_scale_linear_y" default="0.0"/>
+  <arg name="base_scale_linear_y_turbo" default="0.0"/>
+  <arg name="base_scale_angular_yaw" default="1.25"/>
+  <arg name="base_scale_angular_yaw_turbo" default="0.4"/>
+  <arg name="base_turbo_button" default="-1"/>
+  <arg name="base_debug_print_hz" default="0.0"/>
+  <arg name="camera_name" default="arm_camera"/>
+  <arg name="camera_width" default="640"/>
+  <arg name="camera_height" default="480"/>
+  <arg name="camera_fps" default="15.0"/>
+  <arg name="cmd_arm_vel_enabled" default="false"/>
+  <arg name="arm_telemetry_hz" default="5.0"/>
+
+  <group>
+    <push-ros-namespace namespace="$(var ns)"/>
+
+    <!-- 1) Joystick driver -->
+    <node if="$(var start_joy_node)" name="joy" pkg="joy" exec="joy_node" output="screen">
+      <param name="dev" value="/dev/input/js$(var joy_index)"/>
+      <param name="deadzone" value="0.10"/>
+      <param name="autorepeat_rate" value="100.0"/>
+      <param name="coalesce_interval" value="0.0"/>
+      <param name="sticky_buttons" value="false"/>
+    </node>
+
+    <!-- 2) Base piloting -->
+    <node if="$(var use_teleop_twist_joy)" pkg="teleop_twist_joy" exec="teleop_node" name="teleop_twist_joy" output="screen">
+      <param from="$(find-pkg-share mujoco_rm_bringup)/config/xbox_piloting.yaml"/>
+      <remap from="cmd_vel" to="$(var cmd_vel_topic)"/>
+    </node>
+    <node unless="$(var use_teleop_twist_joy)" pkg="mujoco_rm_bringup" exec="joy_base_teleop" name="joy_base_teleop" output="screen">
+      <param name="model_path" value="$(var model_path)"/>
+      <param name="joy_topic" value="$(var joy_topic)"/>
+      <param name="cmd_vel_topic" value="$(var cmd_vel_topic)"/>
+      <param name="deadman_button" value="5"/>
+      <param name="mode" value="$(var base_mode)"/>
+      <param name="axis_x" value="$(var base_axis_x)"/>
+      <param name="axis_y" value="$(var base_axis_y)"/>
+      <param name="axis_yaw" value="$(var base_axis_yaw)"/>
+      <param name="scale_linear_x" value="$(var base_scale_linear_x)"/>
+      <param name="scale_linear_y" value="$(var base_scale_linear_y)"/>
+      <param name="scale_angular_yaw" value="$(var base_scale_angular_yaw)"/>
+      <param name="turbo_button" value="$(var base_turbo_button)"/>
+      <param name="scale_linear_x_turbo" value="$(var base_scale_linear_x_turbo)"/>
+      <param name="scale_linear_y_turbo" value="$(var base_scale_linear_y_turbo)"/>
+      <param name="scale_angular_yaw_turbo" value="$(var base_scale_angular_yaw_turbo)"/>
+      <param name="debug_print_hz" value="$(var base_debug_print_hz)"/>
+      <param name="auto_bind_axes" value="false"/>
+    </node>
+
+    <!-- 3) Arm/gripper auxiliary controls -->
+    <node if="$(var use_joint_servo_teleop_effective)" pkg="mujoco_rm_bringup" exec="joy_servo_teleop" name="joy_servo_teleop" output="screen">
+      <param name="model_path" value="$(var model_path)"/>
+      <param name="servo_config" value="$(var servo_config)"/>
+      <param name="joy_topic" value="$(var joy_topic)"/>
+      <param name="cmd_joint_states_topic" value="$(var cmd_joint_states_topic)"/>
+      <param name="deadman_button" value="4"/>
+      <param name="servo0_axis" value="0"/>
+      <param name="servo1_axis" value="1"/>
+      <param name="servo0_rate" value="1.0"/>
+      <param name="servo1_rate" value="1.0"/>
+      <param name="gripper_open_button" value="0"/>
+      <param name="gripper_close_button" value="2"/>
+      <param name="gripper_mode" value="latch"/>
+      <param name="gripper_rate" value="1.5"/>
+      <param name="gripper_latch_rate" value="0.3"/>
+    </node>
+
+    <!-- Alternative arm teleop compatible with RoboMaster-style joy_teleop configs -->
+    <node if="$(var use_cmd_arm_teleop_effective)" pkg="joy_teleop" exec="joy_teleop" name="joy_teleop" output="screen">
+      <param from="$(find-pkg-share mujoco_rm_bringup)/config/xbox_joy_config_mujoco.yaml"/>
+    </node>
+
+    <!-- 4) MuJoCo sim + camera publisher -->
+    <node pkg="mujoco_rm_bringup" exec="mujoco_sim" name="mujoco_sim" output="screen">
+      <env name="MUJOCO_GL" value="$(var mujoco_gl)"/>
+      <param name="model_path" value="$(var model_path)"/>
+      <param name="servo_config" value="$(var servo_config)"/>
+      <param name="show_viewer" value="$(var show_viewer)"/>
+      <param name="joy_topic" value="$(var joy_topic)"/>
+      <param name="cmd_vel_topic" value="$(var cmd_vel_topic)"/>
+      <param name="cmd_joint_states_topic" value="$(var cmd_joint_states_topic)"/>
+      <param name="cmd_arm_topic" value="$(var cmd_arm_topic)"/>
+      <param name="cmd_arm_vel_topic" value="$(var cmd_arm_vel_topic)"/>
+      <param name="cmd_gripper_topic" value="$(var cmd_gripper_topic)"/>
+      <param name="wheel_tau_smooth" value="0.0"/>
+      <param name="drive_assist_enabled" value="true"/>
+      <param name="drive_assist_tau_min" value="0.02"/>
+      <param name="cmd_arm_enabled" value="$(var use_cmd_arm_teleop_effective)"/>
+      <param name="cmd_arm_vel_enabled" value="$(var cmd_arm_vel_enabled)"/>
+      <param name="gripper_from_joy" value="$(var use_cmd_arm_teleop_effective)"/>
+      <param name="cmd_gripper_rate" value="3.0"/>
+      <param name="camera_name" value="$(var camera_name)"/>
+      <param name="camera_width" value="$(var camera_width)"/>
+      <param name="camera_height" value="$(var camera_height)"/>
+      <param name="camera_fps" value="$(var camera_fps)"/>
+      <param name="arm_telemetry_hz" value="$(var arm_telemetry_hz)"/>
+    </node>
+  </group>
+</launch>

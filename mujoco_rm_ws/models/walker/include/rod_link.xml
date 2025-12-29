@@ -1,0 +1,12 @@
+<mujoco>
+  <body name="rod_link" pos="-0.031923 0.021424 0.009805" quat="0.49999991 -0.50000025 -0.49999975 -0.50000009">
+    <joint name="servo_motor_0" type="hinge" axis="0 0 1" limited="true"
+           range="-0.79936075210571 5.4838247299194" ref="0.073304"
+           damping="0.1" armature="0.002"/>
+    <geom name="rod_link_visual" type="mesh" mesh="rod_link_visual_mesh" material="mat_arm_link" pos="-0.020597 -0.011197 0.001658" quat="-0.68354908 -0.18099915 0.68354939 -0.18099778" mass="0" contype="0" conaffinity="0"/>
+    <geom name="rod_link_collision" type="mesh" mesh="rod_link_collision_mesh" material="mat_collision" pos="-0.020399 -0.011337 0.002379" quat="0.17230431 -0.68579253 -0.17230425 -0.6857923" contype="1" conaffinity="1" density="236.55" group="3"/>
+    <site name="rodlink_anchor_a" pos="-0.03647206 0.05829802 0.00694893" quat="0.70180072 0.00011808 0.71237329 0.00016745" size="0.01" rgba="0.8 0.4 0.2 0.7"/>
+    <site name="rodlink_anchor_b" pos="-0.01647206 0.05829803 0.00694293" quat="0.70180072 0.00011808 0.71237329 0.00016745" size="0.01" rgba="0.8 0.4 0.2 0.7"/>
+    <include file="rod_3_link.xml"/>
+  </body>
+</mujoco>

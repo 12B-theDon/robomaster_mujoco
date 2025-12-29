@@ -1,0 +1,9 @@
+<mujoco>
+  <body name="wheel_front_left" pos="0.100103 0.099836 0.050372" quat="-0.70710807 0.70706589 -0.0051468 -0.0054326">
+    <joint name="wheel_front_left_spin" type="hinge" axis="0 0 1" limited="false" damping="0.05" stiffness="0" frictionloss="0.02" armature="0.02"/>
+    <geom name="wheel_front_left_collision" type="cylinder" size="0.05 0.02" pos="0 0 0" material="mat_collision" friction="0.35 0.08 0.01" solref="0.01 1" solimp="0.95 0.99 0.001" margin="0.002" contype="1" conaffinity="1" density="200" group="3"/>
+    <geom name="wheel_front_left_geom_outer" type="mesh" mesh="wheel_front_left_mesh_1" material="mat_wheel" mass="0.001" friction="1 0.1 0.01" pos="-0.000306 0.000697 0.000255" quat="-0.11680759 -0.69739243 -0.11635165 0.69746833" contype="0" conaffinity="0"/>
+    <geom name="wheel_front_left_geom_inner" type="mesh" mesh="wheel_front_left_mesh_2" material="mat_wheel" mass="0.001" friction="1 0.1 0.01" pos="-0.000306 0.000697 0.000255" quat="-0.11680759 -0.69739243 -0.11635165 0.69746833" contype="0" conaffinity="0"/>
+    <site name="wheel_front_left_hub" pos="0 0 0" size="0.01" rgba="0.1 0.8 0.2 0.7"/>
+  </body>
+</mujoco>

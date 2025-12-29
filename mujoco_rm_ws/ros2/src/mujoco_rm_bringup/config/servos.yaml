@@ -1,0 +1,20 @@
+- index: 0
+  name: servo_motor_0
+  actuator: servo_motor_0_act
+  direction: 1
+  # Matches MuJoCo joint `servo_motor_0` ref in `include/rod_link.xml`
+  reference_angle: 0.073304
+  reference_ctrl: 0.073304
+- index: 1
+  name: servo_motor_1
+  actuator: servo_motor_1_act
+  # Matches MuJoCo joint `servo_motor_1` ref in `include/arm_1_link.xml`
+  direction: -1
+  reference_angle: -0.274016
+  reference_ctrl: -0.274016
+- index: 2
+  name: gripper
+  actuator: gripper_pos
+  direction: 1
+  reference_angle: 0.0
+  reference_ctrl: 0.0

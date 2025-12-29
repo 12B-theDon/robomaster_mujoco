@@ -1,0 +1,6 @@
+<mujoco>
+  <body name="rear_sensors" pos="0 0 0">
+    <geom name="rear_hit_sensor" type="mesh" mesh="rear_hit_sensor_mesh" material="mat_sensor" pos="-0.155119 -0.002990 0.069243" quat="-0.70710842 0.70706553 -0.00514751 -0.00543330" mass="0.05"/>
+    <geom name="rear_led" type="mesh" mesh="rear_led_mesh" material="mat_led" pos="-0.165956 -0.000894 0.069047" quat="-0.01753563 0.01796333 0.70693414 0.70683374" mass="0.02"/>
+  </body>
+</mujoco>

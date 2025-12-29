@@ -1,0 +1,5 @@
+<mujoco>
+  <body name="gyrosensor" pos="0 0 0" quat="1 0 0 0">
+    <geom name="gyrosensor_visual" type="mesh" mesh="gyrosensor_mesh" material="mat_sensor" mass="0.01" contype="0" conaffinity="0"/>
+  </body>
+</mujoco>

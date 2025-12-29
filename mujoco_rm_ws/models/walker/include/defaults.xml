@@ -1,0 +1,11 @@
+<mujoco>
+  <default>
+    <joint damping="5" armature="0.05" stiffness="0" solimplimit="0.9 0.95 0.01" solreflimit="0.02 1"/>
+
+    <default class="walker">
+      <geom type="capsule" contype="1" conaffinity="1" density="900" friction="1 0.1 0.1" rgba="0.77 0.33 0.26 1"/>
+      <joint limited="true"/>
+      <motor ctrllimited="true" ctrlrange="-1 1"/>
+    </default>
+  </default>
+</mujoco>
