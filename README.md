@@ -5,7 +5,7 @@ This repository packages the RoboMaster EP Core for ROS 2 (Humble) and includes 
 
 ## Overview
 
-- **Real robot:** based on `jeguzzi/robomaster_ros` with ROS 2 Humble compatibility and a faster manipulator bridge.
+- **Real robot:** based on `jeguzzi/robomaster_ros`(https://github.com/jeguzzi/robomaster_ros) with ROS 2 Humble compatibility and a faster manipulator bridge.
 - **Simulator:** a MuJoCo-backed environment that mirrors the physical bot for development without hardware.
 
 ## Step-by-step setup
@@ -87,7 +87,7 @@ Start the `ep.launch` file first so the robot establishes coordination with the 
 ### Simulation teleoperation
 
 ```sh
-ros2 launch mujoco_rm_bringup teleop_linux.launch.xml start_joy_node:=false joy_topic:=/joy arm_joy_debug_hz:=5.0
+ros2 launch mujoco_rm_bringup teleop_linux.launch.xml
 ```
 
 The MuJoCo simulator publishes camera topics that can be visualized with `rviz2`; once the launch is running, start `rviz2` and add the relevant image/display panels pointing to the simulator topics.
