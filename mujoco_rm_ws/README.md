@@ -47,3 +47,51 @@ This workspace bootstraps a walker-style MuJoCo environment (ground plane, light
 - Use the `spawn` site in `arena.xml` to visualize the nominal COM height when tuning proportions.
 - When importing meshes (like the wheels), convert Collada files to `.obj` (e.g. `assimp export part.dae part.obj`), drop them into `models/walker/assets/`, add a `<mesh>` entry in `include/assets.xml`, and create a companion include file (for transforms/joints) so you can toggle modules on/off via `<include>` statements.
 - When importing meshes, remember to scale/align them in a DCC tool so that only simple `<geom>` transforms are needed inside the include files.
+
+## ROS 2 bringup (MuJoCo simulator + teleop)
+
+All ROS 2 code lives in `ros2/` as a single package `mujoco_rm_bringup`. It wraps the same MuJoCo model and provides joystick teleop, camera streaming, and arm/gripper control.
+
+### Key files
+
+- `ros2/src/mujoco_rm_bringup/launch/teleop_linux.launch.xml` — main launch for MuJoCo sim + joystick teleop + camera publisher. Namespaced (default `mujoco_rm`). Toggle `start_joy_node`, `joy_topic`, `cmd_vel_topic`, `cmd_joint_states_topic`, `cmd_gripper_topic`, etc. Deadman and axis/button mappings are exposed as params (see file defaults).
+- `ros2/src/mujoco_rm_bringup/mujoco_rm_bringup/mujoco_sim_node.py` — MuJoCo simulator node. Publishes camera (`arm_camera/image_raw`), applies `/cmd_vel_joy`, `/cmd_joint_states`, optional `/cmd_gripper` and RoboMaster-style `/cmd_arm(_vel)`. Includes arm/gripper telemetry logs (`arm_telemetry_hz`, `gripper_telemetry_hz`).
+- `ros2/src/mujoco_rm_bringup/mujoco_rm_bringup/joy_base_teleop_node.py` — joystick → `/cmd_vel_joy` (vx/vy/wz) with deadman and scaling similar to `teleop_twist_joy` but without spurious zeros.
+- `ros2/src/mujoco_rm_bringup/mujoco_rm_bringup/joy_servo_teleop_node.py` — joystick → `/cmd_joint_states` for arm (servo0/servo1) and latched gripper open/close actions (no mid-stop). Buttons are set in the launch file; deadman required.
+- `ros2/src/mujoco_rm_bringup/mujoco_rm_bringup/servo_config.py` + `models/walker/include/actuators.xml` — MuJoCo actuator ranges/limits; the ROS teleop nodes query joint ranges directly to map joystick to ctrl.
+
+### Running
+
+```bash
+cd /mujoco_rm_ws/ros2
+colcon build --symlink-install
+source install/setup.bash
+ros2 launch mujoco_rm_bringup teleop_linux.launch.xml
+```
+
+Default topics (namespaced with `ns:=mujoco_rm`):
+- Base command: `/mujoco_rm/cmd_vel_joy`
+- Arm/servos: `/mujoco_rm/cmd_joint_states` (servo_motor_0_act, servo_motor_1_act, gripper_pos)
+- Camera: `/mujoco_rm/arm_camera/image_raw` (`camera_fps`, `camera_width/height` tunable)
+
+Gripper actions (latched, action-like):
+- `LB + A` → OPEN to the upper limit (default joint range `-0.08 .. 0.50`)
+- `LB + X` → CLOSE to the lower limit
+If already at the requested end-stop, the node logs `[gripper_action] already OPEN/CLOSED` and ignores the new command.
+
+### Model notes (arm/gripper)
+
+- Arm joint limits are defined in `models/walker/include/arm_1_link.xml` and `arm_2_link.xml`.
+- Servo actuators and gains are in `models/walker/include/actuators.xml`.
+- Gripper joint/ctrl limits currently: `gripper_hinge_left range/ctrlrange = [-0.08, 0.5]` (open near -0.08, close near +0.5). Adjust here if you need different travel.
+- Gripper contact uses the actual finger meshes (collision ON) so visual and physical extents match. The ball uses `soft_ball_geom` in `walker_soft_ball.xml` with matching friction/margins.
+
+### Camera
+
+- Physical camera is defined in `models/walker/include/camera_link.xml` on the arm tip. The sim node renders it via `mujoco.Renderer` and publishes RGB + CameraInfo. Resolution/FPS are set via launch args.
+
+## How to extend
+
+- Add new MuJoCo modules under `models/walker/include/` and include them from `walker_soft_ball.xml` or your own top-level MJCF.
+- To add new ROS control topics, copy the patterns in `mujoco_sim_node.py` (declare params, create subscriptions, clamp to `actuator_ctrlrange`).
+- For different joysticks, override button/axis params in `teleop_linux.launch.xml` rather than editing code. Use `arm_joy_debug_hz` or `base_debug_print_hz` to print mappings live.
