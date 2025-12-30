@@ -3,7 +3,7 @@
   <name>mujoco_rm_bringup</name>
   <version>0.0.1</version>
   <description>ROS 2 bringup for the MuJoCo mobile base + arm, with joystick teleop and camera streaming.</description>
-  <maintainer email="user@example.com">user</maintainer>
+  <maintainer email="minhyeong3463@gmail.com">user</maintainer>
   <license>Apache-2.0</license>
 
   <buildtool_depend>ament_cmake</buildtool_depend>

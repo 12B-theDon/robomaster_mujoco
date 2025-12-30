@@ -1,0 +1,7 @@
+numpy
+numpy-quaternion
+pyyaml
+av
+xmlschema
+git+https://github.com/jeguzzi/RoboMaster-SDK.git
+git+https://github.com/jeguzzi/RoboMaster-SDK.git#egg=libmedia_codec&subdirectory=lib/libmedia_codec
