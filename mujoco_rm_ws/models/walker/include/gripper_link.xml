@@ -1,27 +1,37 @@
 <mujoco>
   <body name="gripper_link" pos="0.011017 0.008439 -0.025846" quat="-0.70708863 -0.70712493 3.53556178e-07 1.08595311e-07">
     <geom name="gripper_visual" type="mesh" mesh="gripper_visual_mesh" material="mat_arm_link" pos="0.022420 0.000097 -0.020564" quat="-0.70722887 1.77253352e-05 0.70698467 -1.77253352e-05" mass="0" contype="0" conaffinity="0"/>
-    <geom name="gripper_collision" type="mesh" mesh="gripper_collision_mesh" material="mat_collision" pos="0.021000 0.000000 -0.003000" quat="0.50001250 0.49998734 0.50001283 0.49998734" contype="0" conaffinity="0" density="270.27" friction="2 0.1 0.01" group="3"/>
+    <geom name="gripper_collision" type="mesh" mesh="gripper_collision_mesh" material="mat_collision" pos="0.021000 0.000000 -0.003000" quat="0.50001250 0.49998734 0.50001283 0.49998734" contype="1" conaffinity="1" density="270.27" friction="2 0.1 0.01" group="3"/>
       <body name="Cuboid0" pos="0.046128 -0.000017 -0.043220" quat="-0.7071067810 0.0000176707 0.7071067810 -0.0000176707">
       <!-- Simple backstop/contact pad so objects can't easily squirt out of the grasp. -->
-      <geom name="palm_pad_collision" type="box" size="0.004 0.010 0.010" pos="-0.010 0 0.010" friction="6 0.2 0.02" condim="6" solref="0.001 1" solimp="0.95 0.99 0.001" margin="0.002" contype="1" conaffinity="1" density="97.026" group="3"/>
+      <geom name="palm_pad_collision" type="box" size="0.008 0.015 0.015" pos="-0.010 0 0.010" friction="10 2 0.1" condim="6" solref="0.002 1" solimp="0.95 0.99 0.001" margin="0.004" contype="0" conaffinity="0" density="97.026" group="3"/>
       <body name="left_jaw" pos="0 0.015 0">
-        <joint name="gripper_hinge_left" type="hinge" axis="-1 0 0" limited="true" range="-1 1.5" damping="0.4" frictionloss="0.02" armature="0.01"/>
-        <geom name="left_jaw_collision" type="box" size="0.012 0.004 0.020" pos="0.016 -0.001 0.030" friction="10 1 0.05" condim="6" solref="0.001 1" solimp="0.95 0.99 0.001" margin="0.002" contype="1" conaffinity="1" density="72.769" group="3"/>
-        <geom name="left_tip_pad" type="sphere" size="0.010" pos="0.030 -0.002 0.040" friction="12 1 0.05" condim="6" solref="0.001 1" solimp="0.95 0.99 0.001" margin="0.002" contype="1" conaffinity="1" mass="1e-4" group="3"/>
+        <joint name="gripper_hinge_left" type="hinge" axis="-1 0 0" limited="true" range="-0.08 0.5" damping="0.4" frictionloss="0.02" armature="0.01"/>
+        <geom name="left_jaw_collision" type="box" size="0.0132 0.006 0.024" pos="0.016 -0.001 0.030" friction="14 3 0.15" condim="6" solref="0.002 1" solimp="0.95 0.99 0.001" margin="0.004" contype="0" conaffinity="0" density="72.769" group="3"/>
+        <!-- Tip pad: collides with the ball (bit 4) but not with the arm/other jaw. -->
+        <geom name="left_tip_pad" type="sphere" size="0.016" pos="0.030 -0.002 0.040" friction="18 3 0.15" condim="6" solref="0.0015 1" solimp="0.95 0.99 0.001" margin="0.006" contype="0" conaffinity="0" mass="1e-4" group="3"/>
+        <!-- Cup pad: collides with the ball (bit 4) but not with the opposing cup pad (bit 8). -->
+        <geom name="left_cup_pad" type="sphere" size="0.018" pos="0.032 -0.006 0.040"
+              friction="22 4 0.2" condim="6" solref="0.0015 1" solimp="0.95 0.99 0.001" margin="0.008"
+              contype="0" conaffinity="0" mass="1e-4" group="3"/>
         <!-- Inner stop pad: only collides with the opposing stop pad, so jaws can't pass through each other. -->
-        <geom name="left_jaw_inner_stop" type="sphere" size="0.004" pos="0.030 -0.009 0.040" friction="1 0.1 0.01" condim="6" solref="0.0003 1" solimp="0.999 0.999 0.0001" margin="0.0005" contype="32" conaffinity="32" mass="1e-4" group="3"/>
+        <geom name="left_jaw_inner_stop" type="sphere" size="0.006" pos="0.030 -0.010 0.040" friction="1 0.1 0.01" condim="6" solref="0.0003 1" solimp="0.999 0.999 0.0001" margin="0.001" contype="0" conaffinity="0" mass="1e-4" group="3"/>
         <!-- The imported mesh is authored with a large +Y offset; cancel it so the slider actually closes the jaws. -->
         <body name="left_gripper_mount" pos="0 0 0">
           <include file="left_gripper.xml"/>
         </body>
       </body>
       <body name="right_jaw" pos="0 -0.015 0">
-        <joint name="gripper_hinge_right" type="hinge" axis="-1 0 0" limited="true" range="-1.5 1" damping="0.4" frictionloss="0.02" armature="0.01"/>
-        <geom name="right_jaw_collision" type="box" size="0.012 0.004 0.020" pos="0.016 0.001 0.030" friction="10 1 0.05" condim="6" solref="0.001 1" solimp="0.95 0.99 0.001" margin="0.002" contype="1" conaffinity="1" density="72.769" group="3"/>
-        <geom name="right_tip_pad" type="sphere" size="0.010" pos="0.030 0.002 0.040" friction="12 1 0.05" condim="6" solref="0.001 1" solimp="0.95 0.99 0.001" margin="0.002" contype="1" conaffinity="1" mass="1e-4" group="3"/>
+        <joint name="gripper_hinge_right" type="hinge" axis="-1 0 0" limited="true" range="-1.65 1.1" damping="0.4" frictionloss="0.02" armature="0.01"/>
+        <geom name="right_jaw_collision" type="box" size="0.0132 0.006 0.024" pos="0.016 0.001 0.030" friction="14 3 0.15" condim="6" solref="0.002 1" solimp="0.95 0.99 0.001" margin="0.004" contype="0" conaffinity="0" density="72.769" group="3"/>
+        <!-- Tip pad: collides with the ball (bit 8) but not with the arm/other jaw. -->
+        <geom name="right_tip_pad" type="sphere" size="0.016" pos="0.030 0.002 0.040" friction="18 3 0.15" condim="6" solref="0.0015 1" solimp="0.95 0.99 0.001" margin="0.006" contype="0" conaffinity="0" mass="1e-4" group="3"/>
+        <!-- Cup pad: collides with the ball (bit 8) but not with the opposing cup pad (bit 4). -->
+        <geom name="right_cup_pad" type="sphere" size="0.018" pos="0.032 0.006 0.040"
+              friction="22 4 0.2" condim="6" solref="0.0015 1" solimp="0.95 0.99 0.001" margin="0.008"
+              contype="0" conaffinity="0" mass="1e-4" group="3"/>
         <!-- Inner stop pad: only collides with the opposing stop pad, so jaws can't pass through each other. -->
-        <geom name="right_jaw_inner_stop" type="sphere" size="0.004" pos="0.030 0.009 0.040" friction="1 0.1 0.01" condim="6" solref="0.0003 1" solimp="0.999 0.999 0.0001" margin="0.0005" contype="32" conaffinity="32" mass="1e-4" group="3"/>
+        <geom name="right_jaw_inner_stop" type="sphere" size="0.006" pos="0.030 0.010 0.040" friction="1 0.1 0.01" condim="6" solref="0.0003 1" solimp="0.999 0.999 0.0001" margin="0.001" contype="0" conaffinity="0" mass="1e-4" group="3"/>
         <!-- The imported mesh is authored with a large -Y offset; cancel it so the slider actually closes the jaws. -->
         <body name="right_gripper_mount" pos="0 0 0">
           <include file="right_gripper.xml"/>

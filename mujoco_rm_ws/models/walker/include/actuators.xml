@@ -3,12 +3,12 @@
   <!-- Realistic-but-responsive limits (units: N*m). Avoid huge torques that can destabilize the base. -->
   <position name="servo_motor_0_act" joint="servo_motor_0" kp="40" kv="12"
             ctrlrange="-0.79936075210571 5.4838247299194" forcerange="-6.0 6.0"/>
-  <position name="servo_motor_1_act" joint="servo_motor_1" kp="40" kv="16"
-            ctrlrange="-3.557201307179586 3.009169307179586" forcerange="-8.0 8.0"/>
+	  <position name="servo_motor_1_act" joint="servo_motor_1" kp="140" kv="18"
+	            ctrlrange="-0.537 2.2" forcerange="-2.5 2.5"/>
 
   <!-- Gripper -->
-  <position name="gripper_pos" joint="gripper_hinge_left" kp="400" kv="30"
-            ctrlrange="-1.0 1.5" ctrllimited="true" forcerange="-400 400"/>
+  <position name="gripper_pos" joint="gripper_hinge_left" kp="300" kv="25"
+            ctrlrange="-0.08 0.5" ctrllimited="true" forcerange="-120 120"/>
 
   <!-- Mobile base commands (read by load_env.py callback): vx [m/s], wz [rad/s] -->
   <position name="base_vx" joint="base_vx_cmd_joint" kp="0" kv="0" ctrlrange="-2.5 2.8"/>

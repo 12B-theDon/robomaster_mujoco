@@ -170,6 +170,7 @@ class MujocoSimNode(Node):
         self._last_cmd_vel_nonzero_ns: Optional[int] = None
         self._base_deadman_pressed = False
         self._arm_deadman_pressed = False
+        self._gripper_deadman_pressed = False
         self.arm_cmd = ArmCommand()
         self._arm_target_initialized = False
         self._arm_delta = ArmDelta()
@@ -256,6 +257,7 @@ class MujocoSimNode(Node):
         # Keep explicit joint targets for IK to reduce jitter (don't chase qpos noise).
         self._servo0_qadr: Optional[int] = None
         self._servo1_qadr: Optional[int] = None
+        self._gripper_qadr: Optional[int] = None
         self._arm_q_target0: Optional[float] = None
         self._arm_q_target1: Optional[float] = None
         j0 = _safe_id(self.model, mujoco.mjtObj.mjOBJ_JOINT, "servo_motor_0")
@@ -266,6 +268,9 @@ class MujocoSimNode(Node):
         if j1 is not None:
             self._servo1_qadr = int(self.model.jnt_qposadr[j1])
             self._arm_q_target1 = float(self.data.qpos[self._servo1_qadr])
+        jg = _safe_id(self.model, mujoco.mjtObj.mjOBJ_JOINT, "gripper_hinge_left")
+        if jg is not None:
+            self._gripper_qadr = int(self.model.jnt_qposadr[jg])
 
         # Joint DOF indices for Jacobian-based arm control (optional).
         self._arm_frame_body_id = _safe_id(self.model, mujoco.mjtObj.mjOBJ_BODY, self.cmd_arm_frame)
@@ -311,6 +316,13 @@ class MujocoSimNode(Node):
         self._arm_telem_last_ns: Optional[int] = None
         if arm_telemetry_hz and arm_telemetry_hz > 0.0:
             self._arm_telem_timer = self.create_timer(1.0 / max(arm_telemetry_hz, 0.1), self._log_arm_telemetry)
+
+        # Optional gripper telemetry logs (independent of arm telemetry).
+        self.declare_parameter("gripper_telemetry_hz", 0.0)
+        self._grip_telem_last_ns: Optional[int] = None
+        grip_hz = float(self.get_parameter("gripper_telemetry_hz").value)
+        if grip_hz and grip_hz > 0.0:
+            self._grip_telem_timer = self.create_timer(1.0 / max(grip_hz, 0.1), self._log_gripper_telemetry)
 
         self.get_logger().info(
             f"Loaded {model_path} | cmd_vel -> base_vx/vy/wz | publishing /{camera_name}/image_raw ({camera_width}x{camera_height}@{camera_fps}Hz)"
@@ -358,11 +370,42 @@ class MujocoSimNode(Node):
             return f"{name:<6} | q={q:+7.3f} rad | tgt={t:+7.3f} rad | err={err:+7.3f} | lim=[{lo:+.3f},{hi:+.3f}]"
 
         deadman = "1" if self._arm_deadman_pressed else "0"
+        gdeadman = "1" if self._gripper_deadman_pressed else "0"
         mode = "cmd_arm_vel" if self.cmd_arm_vel_enabled else ("cmd_arm" if self.cmd_arm_enabled else "joint")
-        header = f"[arm] deadman={deadman} mode={mode}"
+        gmode = "aux" if (self._cmd_gripper_target is not None and self._gripper_deadman_pressed) else "setpoint"
+        header = f"[arm] deadman={deadman} mode={mode} | [gripper] deadman={gdeadman} mode={gmode}"
         line0 = _fmt_row("servo0", q0, t0, lo0, hi0)
         line1 = _fmt_row("servo1", q1, t1, lo1, hi1)
-        self.get_logger().info(f"{header}\n  {line0}\n  {line1}")
+        extra = ""
+        if self.act_gripper is not None and self._gripper_qadr is not None:
+            qg = float(self.data.qpos[self._gripper_qadr])
+            tg = float(self.data.ctrl[self.act_gripper])
+            extra = "\n  " + _fmt_row("grip", qg, tg, self.grip_lo, self.grip_hi)
+            if self._cmd_gripper_target is not None:
+                extra += f" | aux_tgt={float(self._cmd_gripper_target):+.3f}"
+        self.get_logger().info(f"{header}\n  {line0}\n  {line1}{extra}")
+
+    def _log_gripper_telemetry(self) -> None:
+        if self.act_gripper is None or self._gripper_qadr is None:
+            return
+
+        now_ns = int(self.get_clock().now().nanoseconds)
+        if self._grip_telem_last_ns is not None and (now_ns - int(self._grip_telem_last_ns)) < int(0.15 * 1e9):
+            return
+        self._grip_telem_last_ns = now_ns
+
+        qg = float(self.data.qpos[self._gripper_qadr])
+        tg = float(self.data.ctrl[self.act_gripper])
+        err = tg - qg
+        deadman = "1" if self._gripper_deadman_pressed else "0"
+        mode = "aux" if (self._cmd_gripper_target is not None and self._gripper_deadman_pressed) else "setpoint"
+        msg = (
+            f"[gripper] deadman={deadman} mode={mode}\n"
+            f"  grip | q={qg:+7.3f} rad | tgt={tg:+7.3f} rad | err={err:+7.3f} | lim=[{self.grip_lo:+.3f},{self.grip_hi:+.3f}]"
+        )
+        if self._cmd_gripper_target is not None:
+            msg += f" | aux_tgt={float(self._cmd_gripper_target):+.3f}"
+        self.get_logger().info(msg)
 
     def _on_cmd_vel(self, msg: Twist) -> None:
         vx = float(msg.linear.x)
@@ -474,13 +517,18 @@ class MujocoSimNode(Node):
         else:
             self._arm_deadman_pressed = False
 
+        gripper_deadman = int(self.get_parameter("gripper_deadman_button").value)
+        if 0 <= gripper_deadman < len(msg.buttons):
+            self._gripper_deadman_pressed = bool(msg.buttons[gripper_deadman])
+        else:
+            self._gripper_deadman_pressed = False
+
         # Deadman-gated gripper command (deadman + button combination).
         if not bool(self.get_parameter("gripper_from_joy").value):
             return
         if self.act_gripper is None:
             return
 
-        deadman = int(self.get_parameter("gripper_deadman_button").value)
         open_b = int(self.get_parameter("gripper_open_button").value)
         close_b = int(self.get_parameter("gripper_close_button").value)
 
@@ -494,7 +542,7 @@ class MujocoSimNode(Node):
         def rising(idx: int) -> bool:
             return 0 <= idx < len(buttons) and buttons[idx] == 1 and self._prev_joy_buttons[idx] == 0
 
-        if pressed(deadman):
+        if self._gripper_deadman_pressed:
             if pressed(open_b):
                 self._cmd_gripper_target = float(self.grip_hi)
             elif pressed(close_b):
@@ -517,6 +565,10 @@ class MujocoSimNode(Node):
             if act_id is not None:
                 lo, hi = map(float, self.model.actuator_ctrlrange[act_id])
                 self._pending_joint_targets[act_id] = _clamp(float(pos), lo, hi)
+                if self.act_gripper is not None and int(act_id) == int(self.act_gripper):
+                    # If gripper is being driven by explicit setpoints (cmd_joint_states),
+                    # don't let the auxiliary gripper latch path override it.
+                    self._cmd_gripper_target = None
 
     def _install_mecanum_control_callback(self) -> None:
         model = self.model
@@ -772,7 +824,8 @@ class MujocoSimNode(Node):
             self.base_cmd = BaseCommand()
             self._last_cmd_vel_nonzero_ns = None
 
-        # Freeze arm/gripper when arm deadman isn't pressed (prevents continuing toward an old target).
+        # Freeze arm when arm deadman isn't pressed (prevents continuing toward an old target).
+        # Note: gripper is controlled independently via cmd_joint_states or cmd_gripper; don't drop its targets here.
         if bool(self.get_parameter("arm_requires_deadman").value) and not self._arm_deadman_pressed:
             if self.act_servo0 is not None and self._servo0_qadr is not None:
                 q0 = float(self.data.qpos[self._servo0_qadr])
@@ -782,14 +835,8 @@ class MujocoSimNode(Node):
                 q1 = float(self.data.qpos[self._servo1_qadr])
                 self.data.ctrl[self.act_servo1] = _clamp(q1, self.servo1_lo, self.servo1_hi)
                 self._arm_q_target1 = float(self.data.ctrl[self.act_servo1])
-            if self.act_gripper is not None:
-                jg = _safe_id(self.model, mujoco.mjtObj.mjOBJ_JOINT, "gripper_hinge_left")
-                if jg is not None:
-                    qadr = int(self.model.jnt_qposadr[jg])
-                    qg = float(self.data.qpos[qadr])
-                    self.data.ctrl[self.act_gripper] = _clamp(qg, self.grip_lo, self.grip_hi)
             # Drop any pending targets for these actuators.
-            for act_id in [self.act_servo0, self.act_servo1, self.act_gripper]:
+            for act_id in [self.act_servo0, self.act_servo1]:
                 if act_id is not None and act_id in self._pending_joint_targets:
                     self._pending_joint_targets.pop(act_id, None)
 
@@ -852,7 +899,13 @@ class MujocoSimNode(Node):
                         self.data.ctrl[self.act_servo1] = float(self._arm_q_target1)
 
         # Optional cmd_gripper (integrated position target).
-        if self._cmd_gripper_target is not None and self.act_gripper is not None:
+        # Only drive this path while its deadman is held (safety: releasing deadman stops motion).
+        if (
+            self._cmd_gripper_target is not None
+            and self.act_gripper is not None
+            and (bool(self.get_parameter("cmd_gripper_topic_enabled").value) or bool(self.get_parameter("gripper_from_joy").value))
+            and self._gripper_deadman_pressed
+        ):
             rate = float(self.get_parameter("cmd_gripper_rate").value)
             cur = float(self.data.ctrl[self.act_gripper])
             tgt = float(self._cmd_gripper_target)
@@ -908,7 +961,10 @@ def main() -> None:
         pass
     finally:
         node.destroy_node()
-        rclpy.shutdown()
+        try:
+            rclpy.shutdown()
+        except Exception:
+            pass
 
 
 if __name__ == "__main__":

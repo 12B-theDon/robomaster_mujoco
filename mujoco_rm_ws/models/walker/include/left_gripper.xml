@@ -5,28 +5,28 @@
 
     <body name="left_gripper_2" pos="0.021349 0.013036 0.000000" quat="1.0000000000 0.0000001732 -0.0000001732 0.0000001732">
       <joint name="left_gripper_2_joint" type="hinge" axis="0 0 1" limited="true" range="-1e-06 1e-06"/>
-      <geom name="left_gripper_2_collision" type="mesh" mesh="left_gripper_2_collision_mesh" material="mat_collision" pos="0.008922 0.009093 0.000093" quat="0.4592963906 -0.5376309040 -0.4592962405 -0.5376307283" friction="10 2 0.2" condim="6" solref="0.0005 1" solimp="0.999 0.999 0.0001" margin="0.0005" contype="0" conaffinity="0" density="236.55" group="3"/>
+	      <geom name="left_gripper_2_collision" type="mesh" mesh="left_gripper_2_collision_mesh" material="mat_collision" pos="0.008922 0.009093 0.000093" quat="0.4592963906 -0.5376309040 -0.4592962405 -0.5376307283" friction="10 2 0.2" condim="6" solref="0.0005 1" solimp="0.999 0.999 0.0001" margin="0.0005" contype="1" conaffinity="1" density="236.55" group="3"/>
       <geom name="left_gripper_2_visual" type="mesh" mesh="left_gripper_2_visual_mesh" material="mat_arm_link" pos="0.003857 0.006381 0.000278" quat="0.5860302782 -0.3956875995 -0.5860300867 -0.3956874702" mass="1e-4" contype="0" conaffinity="0"/>
 
       <body name="left_gripper_4" pos="0.004850 0.020415 -0.000006" quat="-1.0000000000 -0.0000001732 0.0000001732 0.0000001732">
         <joint name="left_gripper_4_joint" type="hinge" axis="0 0 1" limited="true" range="-1e-06 1e-06"/>
-        <geom name="left_gripper_4_collision" type="mesh" mesh="left_gripper_4_collision_mesh" material="mat_collision" pos="0.020378 0.001798 0.000098" quat="0.0888815344 -0.7014985647 -0.0888815054 -0.7014983354" friction="10 2 0.2" condim="6" solref="0.0005 1" solimp="0.999 0.999 0.0001" margin="0.0005" contype="0" conaffinity="0" density="236.55" group="3"/>
+	        <geom name="left_gripper_4_collision" type="mesh" mesh="left_gripper_4_collision_mesh" material="mat_collision" pos="0.020378 0.001798 0.000098" quat="0.0888815344 -0.7014985647 -0.0888815054 -0.7014983354" friction="10 2 0.2" condim="6" solref="0.0005 1" solimp="0.999 0.999 0.0001" margin="0.0005" contype="1" conaffinity="1" density="236.55" group="3"/>
         <geom name="left_gripper_4_visual" type="mesh" mesh="left_gripper_4_visual_mesh" material="mat_arm_link" pos="0.020094 0.002762 -0.000001" quat="0.6980645153 0.1127213193 -0.6980642872 0.1127212825" mass="1e-4" contype="0" conaffinity="0"/>
 
         <body name="left_gripper_5" pos="0.038592 0.010314 0.000002" quat="1.0000000000 0.0000001732 -0.0000001732 0.0000001732">
           <joint name="left_gripper_5_joint" type="hinge" axis="0 0 1" limited="true" range="-1e-06 1e-06"/>
-          <geom name="left_gripper_5_collision" type="mesh" mesh="left_gripper_5_collision_mesh" material="mat_collision" pos="0.017990 -0.008090 -0.000939" quat="0.0316608748 0.7027916005 0.0346857938 0.7098439624" friction="10 2 0.2" condim="6" solref="0.0005 1" solimp="0.999 0.999 0.0001" margin="0.0005" contype="0" conaffinity="0" density="236.55" group="3"/>
+	          <geom name="left_gripper_5_collision" type="mesh" mesh="left_gripper_5_collision_mesh" material="mat_collision" pos="0.017990 -0.008090 -0.000939" quat="0.0316608748 0.7027916005 0.0346857938 0.7098439624" friction="10 2 0.2" condim="6" solref="0.0005 1" solimp="0.999 0.999 0.0001" margin="0.0005" contype="1" conaffinity="1" density="236.55" group="3"/>
           <geom name="left_gripper_5_visual" type="mesh" mesh="left_gripper_5_visual_mesh" material="mat_arm_link" pos="0.017573 -0.011847 0.000239" quat="-0.1444867488 -0.7001879060 0.1479236580 -0.6833586665" mass="1e-4" contype="0" conaffinity="0"/>
 
           <body name="left_gripper_6" pos="0.005114 -0.014085 0.000000" quat="-1.0000000000 0.0000001732 0.0000001732 -0.0000001732">
             <joint name="left_gripper_6_joint" type="hinge" axis="0 0 1" limited="true" range="-1e-06 1e-06"/>
-            <geom name="left_gripper_6_collision" type="mesh" mesh="left_gripper_6_collision_mesh" material="mat_collision" pos="-0.007535 -0.008443 -0.000055" quat="-0.2488219229 0.2488707182 0.6619399739 -0.6618054754" friction="10 2 0.2" condim="6" solref="0.0005 1" solimp="0.999 0.999 0.0001" margin="0.0005" contype="0" conaffinity="0" density="236.55" group="3"/>
+	            <geom name="left_gripper_6_collision" type="mesh" mesh="left_gripper_6_collision_mesh" material="mat_collision" pos="-0.007535 -0.008443 -0.000055" quat="-0.2488219229 0.2488707182 0.6619399739 -0.6618054754" friction="10 2 0.2" condim="6" solref="0.0005 1" solimp="0.999 0.999 0.0001" margin="0.0005" contype="1" conaffinity="1" density="236.55" group="3"/>
             <geom name="left_gripper_6_visual" type="mesh" mesh="left_gripper_6_visual_mesh" material="mat_arm_link" pos="-0.007374 -0.008477 0.000002" quat="0.2454588768 0.2542652749 0.6598127257 0.6631336794" mass="1e-4" contype="0" conaffinity="0"/>
 
             <body name="left_gripper_7" pos="-0.014882 -0.016851 0.000000" quat="1.0000000000 0.0000001732 -0.0000001732 0.0000001732">
               <joint name="left_gripper_7_joint" type="hinge" axis="0 0 1" limited="true" range="-1e-06 1e-06"/>
-              <geom name="left_gripper_7_collision" type="mesh" mesh="left_gripper_7_collision_mesh" material="mat_collision" pos="-0.008705 -0.009626 -0.000056" quat="-0.2508917825 0.2508815798 0.6610968888 -0.6611071396" friction="10 2 0.2" condim="6" solref="0.0005 1" solimp="0.999 0.999 0.0001" margin="0.0005" contype="1" conaffinity="1" density="236.55" group="3"/>
-              <geom name="left_fingertip_pad" type="sphere" size="0.014" pos="-0.008705 -0.009626 -0.000056" friction="12 1 0.05" condim="6" solref="0.0005 1" solimp="0.95 0.99 0.001" margin="0.0003" contype="1" conaffinity="1" mass="1e-4" group="3"/>
+	              <geom name="left_gripper_7_collision" type="mesh" mesh="left_gripper_7_collision_mesh" material="mat_collision" pos="-0.008705 -0.009626 -0.000056" quat="-0.2508917825 0.2508815798 0.6610968888 -0.6611071396" friction="10 2 0.2" condim="6" solref="0.0005 1" solimp="0.999 0.999 0.0001" margin="0.0005" contype="0" conaffinity="0" density="236.55" group="3"/>
+	              <geom name="left_fingertip_pad" type="sphere" size="0.014" pos="-0.008705 -0.009626 -0.000056" friction="12 1 0.05" condim="6" solref="0.0005 1" solimp="0.95 0.99 0.001" margin="0.0003" contype="0" conaffinity="0" mass="1e-4" group="3"/>
               <geom name="left_gripper_7_visual" type="mesh" mesh="left_gripper_7_visual_mesh" material="mat_arm_link" pos="-0.007057 -0.007665 -0.000012" quat="0.2485207815 0.2528293572 0.6596063269 0.6627474864" mass="1e-4" contype="0" conaffinity="0"/>
             </body>
           </body>

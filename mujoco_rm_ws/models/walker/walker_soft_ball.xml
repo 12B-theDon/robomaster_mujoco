@@ -25,10 +25,10 @@
     <!-- Soft contact test object for gripper tuning (in world coordinates). -->
     <body name="soft_ball" pos="1.5 0 0.12">
       <freejoint name="soft_ball_free"/>
-      <geom name="soft_ball_geom" type="sphere" size="0.03" density="200"
-            rgba="0.85 0.95 0.15 1" friction="5 0.5 0.05" condim="6"
-            solref="0.001 1" solimp="0.95 0.99 0.001" margin="0.003"
-            contype="1" conaffinity="1"/>
+	      <geom name="soft_ball_geom" type="sphere" size="0.03" density="200"
+	            rgba="0.85 0.95 0.15 1" friction="8 1 0.1" condim="6"
+	            solref="0.0015 1" solimp="0.95 0.99 0.001" margin="0.008"
+	            contype="1" conaffinity="1"/>
     </body>
   </worldbody>
 
